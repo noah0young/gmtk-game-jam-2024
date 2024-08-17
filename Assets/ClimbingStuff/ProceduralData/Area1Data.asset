@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f30276cf4d2744c9961c38c9ddcfbf0, type: 3}
   m_Name: Area1Data
   m_EditorClassIdentifier: 
+  areaBackground: {fileID: 0}
   boxOptions:
   - {fileID: 5583047766573841251, guid: 6e3a3bf955b9c42328711a0ac81447bd, type: 3}
+  - {fileID: 2919609458890718434, guid: a0f1377ac74f54913a3bd717b5fff5cc, type: 3}
