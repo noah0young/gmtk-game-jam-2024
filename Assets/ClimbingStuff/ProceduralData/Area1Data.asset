@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f30276cf4d2744c9961c38c9ddcfbf0, type: 3}
   m_Name: Area1Data
   m_EditorClassIdentifier: 
-  areaBackground: {fileID: 0}
+  areaBackground: {fileID: 7094966797949988128, guid: 1ea32b58d7d414ecf8b59b76366321e4, type: 3}
   boxOptions:
   - {fileID: 5583047766573841251, guid: 6e3a3bf955b9c42328711a0ac81447bd, type: 3}
   - {fileID: 2919609458890718434, guid: a0f1377ac74f54913a3bd717b5fff5cc, type: 3}
+  - {fileID: 6165594269199983442, guid: 501d1da4e97e44a958141152f053ea4b, type: 3}
+  - {fileID: 6346907661391814682, guid: 26f884f1b4e174c9fb3fc6a42581d25a, type: 3}
+  - {fileID: 6835443026076814981, guid: 2f20f6f6e3d9c46d6a960b07af44c808, type: 3}
+  - {fileID: 1546013119465339675, guid: 62e8a2c901c6f4aab8cb9760ebfd6c10, type: 3}
+  numBoxesInArea: 5

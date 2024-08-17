@@ -18,4 +18,9 @@ public class ProceduralData : ScriptableObject
     {
         return numBoxesInArea;
     }
+
+    public GameObject GetBackground()
+    {
+        return areaBackground;
+    }
 }
