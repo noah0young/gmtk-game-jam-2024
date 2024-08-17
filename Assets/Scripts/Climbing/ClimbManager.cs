@@ -12,7 +12,7 @@ public class ClimbManager : MonoBehaviour
 
     [Header("Starting Data")]
     [SerializeField] private Transform firstSpotToPlace;
-    [SerializeField] private Transform areaBackrgoundPos;
+    [SerializeField] private Transform areaBackrgoundHolder;
 
     [Header("Active Data")]
     [Tooltip("Where to place the next ProceduralBox. Determined by the previous ProceduralBox")]
@@ -20,7 +20,8 @@ public class ClimbManager : MonoBehaviour
     private ProceduralData curArea;
     private Queue<ProceduralBox> activeBoxes;
     private int numBoxesPlacedInCurArea = 0;
-    private int areaIndex = 0;
+    private int nextAreaIndex = 0;
+    private GameObject areaBackground;
 
     [Header("Constants")]
     public static readonly int NUM_BOXES_OPEN = 5;
@@ -30,10 +31,10 @@ public class ClimbManager : MonoBehaviour
     private void Start()
     {
         numBoxesPlacedInCurArea = 0;
-        areaIndex = 0;
+        nextAreaIndex = 0;
         activeBoxes = new Queue<ProceduralBox>();
         nextSpotToPlace = firstSpotToPlace.position;
-        curArea = proceduralDataAreas[areaIndex];
+        SwitchToNextArea();
         PlaceProceduralBox(firstProceduralBox);
         for (int i = 1; i < NUM_BOX_OFFSET_NO_TRIGGER; i++)
         {
@@ -56,8 +57,7 @@ public class ClimbManager : MonoBehaviour
     {
         if (numBoxesPlacedInCurArea > curArea.NumBoxesInArea())
         {
-            numBoxesPlacedInCurArea = 0;
-            curArea = GetNextArea();
+            SwitchToNextArea();
         }
         GameObject boxPrefab = curArea.GetRandomBox();
         return PlaceProceduralBox(boxPrefab);
@@ -84,9 +84,26 @@ public class ClimbManager : MonoBehaviour
         Destroy(oldest.gameObject);
     }
 
-    private ProceduralData GetNextArea()
+    private void SwitchToNextArea()
     {
-        areaIndex += 1;
-        return proceduralDataAreas[areaIndex];
+        numBoxesPlacedInCurArea = 0;
+        curArea = proceduralDataAreas[nextAreaIndex];
+        if (areaBackground != null)
+        {
+            Destroy(areaBackground);
+        }
+        GameObject backgroundPrefab = curArea.GetBackground();
+        if (backgroundPrefab != null)
+        {
+            areaBackground = Instantiate(backgroundPrefab);
+            areaBackground.transform.SetParent(areaBackrgoundHolder);
+            areaBackground.transform.position = areaBackrgoundHolder.position;
+        }
+        nextAreaIndex += 1;
+    }
+
+    public void MachineStopped()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("BuildScene");
     }
 }
