@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6983936895117274233
+--- !u!1001 &1121347010082807983
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -14,16 +14,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2790765600260522510, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
       propertyPath: componentType
-      value: Wheel
+      value: Block
       objectReference: {fileID: 0}
     - target: {fileID: 2888177774974849029, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
       propertyPath: m_Name
-      value: Wheel Variant
+      value: BlcokComponent Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 5749406770583958865, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e92a8d6e3713d45408f07001ec0873c8, type: 3}
     - target: {fileID: 8375380322487097399, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -104,56 +100,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8680484034636092050, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8680484034636092050, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2888177774974849029, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6785313680259883}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
---- !u!1 &5259980033572240508 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2888177774974849029, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
-  m_PrefabInstance: {fileID: 6983936895117274233}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &6785313680259883
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5259980033572240508}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 50

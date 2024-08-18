@@ -10,6 +10,9 @@ public class ClimbingUI : MonoBehaviour
 
     [Header("On Machine End")]
     [SerializeField] private GameObject machineStoppedCanvas;
+    [SerializeField] private GameObject moneyTotalBoxObj;
+    [SerializeField] private TMP_Text moneyTotalValText;
+    [SerializeField] private GameObject continueButtonObj;
     [SerializeField] private Transform moneyHolder;
     [SerializeField] private GameObject moneyPrefab;
     private bool onContinueClick;
@@ -26,6 +29,8 @@ public class ClimbingUI : MonoBehaviour
         }
         onContinueClick = false;
         machineStoppedCanvas.SetActive(false);
+        moneyTotalBoxObj.SetActive(false);
+        continueButtonObj.SetActive(false);
     }
 
     public static void SetScoreVal(int val)
@@ -33,10 +38,19 @@ public class ClimbingUI : MonoBehaviour
         instance.scoreValText.text = val + "";
     }
 
+    public static void SetMoneyTotalVal(int val)
+    {
+        instance.moneyTotalValText.text = val + "";
+    }
+
     public static IEnumerator ShowMachineStopped(int moneyEarned)
     {
         instance.machineStoppedCanvas.SetActive(true);
         yield return instance.ShowMoneyEarned(moneyEarned);
+        yield return new WaitForSeconds(0.1f);
+        instance.moneyTotalBoxObj.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        instance.continueButtonObj.SetActive(true);
         yield return new WaitUntil(() => instance.onContinueClick);
     }
 
