@@ -86,4 +86,9 @@ public class ProceduralGenerator
     {
         return data.areaBackground;
     }
+
+    public Color GetBackgroundColor()
+    {
+        return data.backgroundColor;
+    }
 }

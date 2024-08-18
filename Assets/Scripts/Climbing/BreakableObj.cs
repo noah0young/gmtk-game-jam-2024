@@ -4,13 +4,14 @@ using UnityEngine;
 
 public abstract class BreakableObj : MonoBehaviour
 {
-    private static readonly string MACHINE_ATTACK_TAG = "Player";
+    private static readonly string MACHINE_ATTACK_TAG = "Finish";
     [SerializeField] private int health = 3;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(MACHINE_ATTACK_TAG))
         {
+            TakeDamage(health);
             /*MachineDamageDealer damageDealer = collision.GetComponent<MachineDamageDealer>();
             TakeDamage(damageDealer.AttackPower());*/
         }

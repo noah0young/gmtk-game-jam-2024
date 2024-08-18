@@ -13,26 +13,29 @@ public class MachineComponentInfo
 
 public class ClimbingMachineManager : MonoBehaviour
 {
-    //[SerializeField] private 
+    [SerializeField] private CinemachineVirtualCamera vcm;
     [SerializeField] private Transform machineStartPos;
     [SerializeField] private MachineComponentInfo[] machineComponentDictionary;
     [SerializeField] private ClimbManager climbManager;
+    [SerializeField] private GameObject fakeMachine; // DEBUG
 
     [Header("Game State")]
     private float startingY;
     private Transform machineTracker;
     private Vector2 machinePrevLocation;
     public static readonly float TIME_BETWEEN_CHECKS = 1;
-    public static readonly float MIN_DISTANCE_NEEDED = 4;
+    public static readonly float MIN_DISTANCE_NEEDED = 1;
+    public static readonly float MIN_Y_DISTANCE = .5f;
+    public static readonly float START_DELAY = 3;
 
     private void Start()
     {
-        BuildMachine();
+        StartCoroutine(MachineRunner());
     }
 
     private void FixedUpdate()
     {
-        CheckMachineStillMoving();
+        
         //UpdateScore();
     }
 
@@ -46,23 +49,44 @@ public class ClimbingMachineManager : MonoBehaviour
     {
         // todo: Read Inventory and add components
         // todo: Set startingY here
+        machineTracker = fakeMachine.transform;
+        vcm.Follow = machineTracker;
+        this.startingY = machineTracker.transform.position.y;
     }
 
-    private IEnumerator CheckMachineStillMoving()
+    private IEnumerator MachineRunner()
     {
-        while (true)
+        BuildMachine();
+        bool running = true;
+
+        // A start delay is needed due to the initial drop of placing the machine
+        yield return new WaitForSeconds(START_DELAY);
+
+        // Checks if the machine is still moving up
+        while (running)
         {
             yield return new WaitForSeconds(TIME_BETWEEN_CHECKS);
-            if (Vector2.Distance(machinePrevLocation, machineTracker.position) > MIN_DISTANCE_NEEDED
-                && machineTracker.position.y > machinePrevLocation.y)
+            float distanceTraveled = Vector2.Distance(machinePrevLocation, machineTracker.position);
+            Debug.Log("distanceTraveled = " + distanceTraveled);
+            Debug.Log("Cur Y Pos = " + machineTracker.position.y);
+            Debug.Log("Prev Y Pos = " + machinePrevLocation.y);
+            if (distanceTraveled >= MIN_DISTANCE_NEEDED
+                && machineTracker.position.y >= machinePrevLocation.y)
             {
                 // You're good
             }
             else
             {
                 // Failure
-                climbManager.MachineStopped();
+                MachineStopped();
+                running = false;
             }
+            machinePrevLocation = machineTracker.position;
         }
+    }
+
+    private void MachineStopped()
+    {
+        climbManager.MachineStopped();
     }
 }

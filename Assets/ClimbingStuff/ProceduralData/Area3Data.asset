@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 6261892763314967600, guid: 2eba96fc878c44613a84dbc962fc684d, type: 3}
   - {fileID: 6261892763314967600, guid: 2eba96fc878c44613a84dbc962fc684d, type: 3}
   numBoxesInArea: 5
+  backgroundColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 0}
