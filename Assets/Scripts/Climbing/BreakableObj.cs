@@ -17,10 +17,11 @@ public abstract class BreakableObj : MonoBehaviour
         }
     }
 
-    protected virtual void TakeDamage(int dmg)
+    public virtual void TakeDamage(int dmg)
     {
         health -= dmg;
         health = Mathf.Max(health, 0);
+        Debug.Log(health);
         if (health <= 0)
         {
             Break();
