@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: gravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8594284788498904283, guid: d44de15a6785ccc4bb68218a1c598c44, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2003752923754918834, guid: d44de15a6785ccc4bb68218a1c598c44, type: 3}
       propertyPath: m_Color.b
       value: 0.5613208
@@ -75,5 +79,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7727581674712409104, guid: d44de15a6785ccc4bb68218a1c598c44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9000334694645357309}
   m_SourcePrefab: {fileID: 100100000, guid: d44de15a6785ccc4bb68218a1c598c44, type: 3}
+--- !u!1 &1596949356149043235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7727581674712409104, guid: d44de15a6785ccc4bb68218a1c598c44, type: 3}
+  m_PrefabInstance: {fileID: 9012936975899972659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-9000334694645357309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596949356149043235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2667c980d4b4b44a0d62b1df31a341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceThreshold: 1.1
+  fuelRate: 0
+  miningDamage: 1
+  damageRate: 1

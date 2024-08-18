@@ -6,6 +6,7 @@ public class Boulder : BreakableObj
 {
     [SerializeField] private GameObject destroyEffectPrefab;
 
+
     protected override void Break()
     {
         if (destroyEffectPrefab != null)
@@ -15,4 +16,5 @@ public class Boulder : BreakableObj
         }
         Destroy(gameObject);
     }
+
 }
