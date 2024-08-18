@@ -5,11 +5,20 @@ using UnityEngine.Experimental.AI;
 
 public class WheelComponentDetails : ComponentDetails
 {
-    public float dampingRatio = 0.09f;
-    public float frequency = 100f;
+    public float dampingRatio;
+    public float frequency;
+    private WheelJoint2D joint;
+
+    public override void outOfBattery()
+    {
+        if (joint !=  null)
+        {
+            joint.useMotor = false;
+        }
+    }
     public override void AddJoint(GameObject otherBox)
     {
-        WheelJoint2D joint = otherBox.AddComponent<WheelJoint2D>();
+        this.joint = otherBox.AddComponent<WheelJoint2D>();
         joint.connectedBody = this.GetComponent<Rigidbody2D>();
         joint.anchor = transform.position - otherBox.transform.position;
         joint.connectedAnchor = Vector2.zero;

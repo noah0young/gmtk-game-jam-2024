@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ComponentManager : MonoBehaviour
 {
-    public float totalFuelRate = .1f;
+    private GameObject[] taggedObjects; 
     public float totalFuel;
     // Start is called before the first frame update
     void Start()
     {
+        this.taggedObjects = getTaggedObjects();
         totalFuel = getTotalFuel();
     }
 
@@ -21,15 +23,19 @@ public class ComponentManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("you died");
+            foreach (GameObject component in taggedObjects)
+            {
+                component.GetComponent<ComponentDetails>().outOfBattery();
+                Debug.Log("Out of batery");
+            }
         }
     }
 
+
     float getTotalFuel()
     {
-        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Component");
         float totalFuel = 0f;
-        foreach (var otherObject in taggedObjects)
+        foreach (var otherObject in this.taggedObjects)
         {
             FuelDetails obj = otherObject.GetComponent<FuelDetails>();
             if (obj != null)
@@ -40,8 +46,34 @@ public class ComponentManager : MonoBehaviour
         return totalFuel;
     }
 
+    float getTotalFuelRate()
+    {
+        float totalFuelRate = 0f;
+        foreach (var otherObject in this.taggedObjects)
+        {
+            ComponentDetails obj = otherObject.GetComponent<ComponentDetails>();
+            if (obj != null)
+            {
+                totalFuelRate += obj.fuelRate;
+            }
+        }
+        return totalFuelRate;
+    }
+
+    GameObject[] getTaggedObjects()
+    {
+        List<GameObject> taggedObjects = new List<GameObject>();
+        string[] tags = new string[]{ "Component", "Wheel" };
+        foreach(string i in tags)
+        {
+            taggedObjects.AddRange(GameObject.FindGameObjectsWithTag(i));
+        }
+
+        return taggedObjects.ToArray();
+    }
     void depleteFuel()
     {
-        totalFuel -= totalFuelRate * Time.deltaTime;
+        totalFuel -= getTotalFuelRate() * Time.deltaTime;
+        Debug.Log(totalFuel);
     }
 }

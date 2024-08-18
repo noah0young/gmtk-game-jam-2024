@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ComponentDetails : MonoBehaviour
@@ -10,6 +11,12 @@ public class ComponentDetails : MonoBehaviour
     {
         CheckForAdjacentBoxes();
     }
+
+    virtual public void outOfBattery()
+    {
+  
+    }
+
     void CheckForAdjacentBoxes()
     {
         GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Component");
