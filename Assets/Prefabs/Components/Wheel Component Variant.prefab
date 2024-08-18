@@ -144,4 +144,4 @@ MonoBehaviour:
   distanceThreshold: 1.1
   fuelRate: 0
   dampingRatio: 0
-  frequency: 0
+  frequency: 100
