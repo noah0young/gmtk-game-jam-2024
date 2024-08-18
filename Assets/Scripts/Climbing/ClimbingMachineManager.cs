@@ -33,7 +33,7 @@ public class ClimbingMachineManager : MonoBehaviour
     private void FixedUpdate()
     {
         CheckMachineStillMoving();
-        UpdateScore();
+        //UpdateScore();
     }
 
     private void UpdateScore()
