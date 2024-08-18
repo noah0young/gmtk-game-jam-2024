@@ -1,19 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ShopManager : MonoBehaviour
 {
     private int money;
 
-    private Capsule one;
-    private Capsule two;
-    private Capsule three;
-
     [SerializeField] public GameObject[] possibleComponents;
 
-    [SerializeField] public GameObject[] capsules;
+    [SerializeField] public CapsuleManager[] capsules;
 
     [SerializeField] public Button[] buyButtons;
 
@@ -22,7 +21,7 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        refreshCapsules();
+        RefreshCapsules();
     }
 
     // Update is called once per frame
@@ -30,43 +29,54 @@ public class ShopManager : MonoBehaviour
         
     }
 
-    private void refreshCapsules()
+    private void RefreshCapsules()
     {
-        one = generateCapsule();
-        two = generateCapsule();
-        three = generateCapsule();
-        //capsules[0].set(one.component.GetComponent<Image>().sprite, one.cost, one.onSale);
-    }
-
-    private Capsule generateCapsule()
-    {
-        GameObject selected = possibleComponents[Random.Range(0, possibleComponents.Length)];
-        Capsule caps = new Capsule();
-        caps.component = selected;
-        //caps.cost = selected.GetComponent<Cost>();
-        caps.onSale = false;
-        if (isOnSale())
+        GameObject temp = randomComponent();
+        int tempCost = getCostForComponent(temp);
+        bool tempSale = isOnSale();
+        if (tempSale)
         {
-            caps.cost = caps.cost / 2;
-            caps.onSale = true;
+            tempCost /= 2;
         }
-
-        return caps;
+        capsules[0].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
+        temp = randomComponent();
+        tempCost = getCostForComponent(temp);
+        tempSale = isOnSale();
+        if (tempSale)
+        {
+            tempCost /= 2;
+        }
+        capsules[1].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
+        temp = randomComponent();
+        tempCost = getCostForComponent(temp);
+        tempSale = isOnSale();
+        if (tempSale)
+        {
+            tempCost /= 2;
+        }
+        capsules[2].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
     }
 
-    public void BuyItem(int capsule) {
-        
-        //GameObject go = Instantiate(,Inventory.transform);
+    private GameObject randomComponent()
+    {
+        return possibleComponents[Random.Range(0, possibleComponents.Length)];
+    }
+
+    private int getCostForComponent(GameObject component)
+    {
+        int baseCost = component.GetComponent<Cost>().baseCost;
+        int extra = Random.Range(-1, 2);
+        return math.min(1, baseCost + extra);
     }
 
     private bool isOnSale()
     {
         return Random.Range(0, 100) < 2;
     } 
-}
-
-public class Capsule {
-    public GameObject component;
-    public int cost;
-    public bool onSale;
+    
+    public void BuyItem(CapsuleManager capsule) {
+        
+        GameObject go = Instantiate(capsule.componentPrefab,Inventory.transform);
+        RefreshCapsules();
+    }
 }

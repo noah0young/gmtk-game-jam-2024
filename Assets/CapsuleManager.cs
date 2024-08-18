@@ -6,9 +6,15 @@ using UnityEngine.UI;
 
 public class CapsuleManager : MonoBehaviour
 {
+    
     [SerializeField] public GameObject spriteObject;
     [SerializeField] public TextMeshProUGUI text;
     [SerializeField] public GameObject saleSign;
+    
+    [HideInInspector] public GameObject componentPrefab;
+    [HideInInspector] public Sprite image;
+    [HideInInspector] public int cost;
+    [HideInInspector] public bool onSale;
     
     // Start is called before the first frame update
     void Start()
@@ -22,18 +28,14 @@ public class CapsuleManager : MonoBehaviour
         
     }
 
-    public void set(Sprite image, int cost, bool onSale)
+    public void Set(GameObject compPrefab, Sprite newImage, int newCost, bool newOnSale)
     {
+        componentPrefab = compPrefab;
+        image = newImage;
+        cost = newCost;
+        onSale = newOnSale;
         spriteObject.GetComponent<Image>().sprite = image;
         text.text = "$" + cost.ToString();
-        if (onSale)
-        {
-            saleSign.SetActive(true);
-        }
-        else
-        {
-            saleSign.SetActive(false);
-        }
-        
+        saleSign.SetActive(onSale);
     }
 }
