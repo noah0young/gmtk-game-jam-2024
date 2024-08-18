@@ -40,7 +40,7 @@ public class ClimbingUI : MonoBehaviour
 
     public static void SetMoneyTotalVal(int val)
     {
-        instance.moneyTotalValText.text = val + "";
+        instance.moneyTotalValText.text = "$" + val + "";
     }
 
     public static IEnumerator ShowMachineStopped(int moneyEarned)
