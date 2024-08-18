@@ -8,6 +8,7 @@ public class DebugMoveRight : MonoBehaviour
     private Rigidbody2D myRigidbody;
     [SerializeField] private float acceleration;
     [SerializeField] private float maxSpeed = 5;
+    public float cost;
 
     private void Start()
     {
