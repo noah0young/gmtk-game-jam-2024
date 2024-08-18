@@ -6,7 +6,9 @@ using UnityEngine;
 public class DebugMoveRight : MonoBehaviour
 {
     private Rigidbody2D myRigidbody;
-    [SerializeField] private float speed;
+    [SerializeField] private float acceleration;
+    [SerializeField] private float maxSpeed = 5;
+    public float cost;
 
     private void Start()
     {
@@ -16,7 +18,11 @@ public class DebugMoveRight : MonoBehaviour
     void Update()
     {
         Vector2 velocity = this.myRigidbody.velocity;
-        velocity.x = speed;
+        velocity.x += acceleration;
+        if (velocity.x > maxSpeed)
+        {
+            velocity.x = maxSpeed;
+        }
         this.myRigidbody.velocity = velocity;
     }
 }
