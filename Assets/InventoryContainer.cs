@@ -20,5 +20,6 @@ public class InventoryContainer : MonoBehaviour, IDropHandler
             DraggableItem draggableItem = item.GetComponent<DraggableItem>();
             draggableItem.parentAfterDrag = transform;
             draggableItem.body.simulated = true;
+            draggableItem.body.gravityScale = 2;
     }
 }
