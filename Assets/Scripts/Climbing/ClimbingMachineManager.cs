@@ -19,6 +19,7 @@ public class ClimbingMachineManager : MonoBehaviour
     [SerializeField] private ClimbManager climbManager;
 
     [Header("Game State")]
+    private float startingY;
     private Transform machineTracker;
     private Vector2 machinePrevLocation;
     public static readonly float TIME_BETWEEN_CHECKS = 1;
@@ -32,11 +33,19 @@ public class ClimbingMachineManager : MonoBehaviour
     private void FixedUpdate()
     {
         CheckMachineStillMoving();
+        //UpdateScore();
+    }
+
+    private void UpdateScore()
+    {
+        int score = (int)Mathf.Floor((machineTracker.position.y - startingY) * 10);
+        ClimbingUI.SetScoreVal(score);
     }
 
     private void BuildMachine()
     {
         // todo: Read Inventory and add components
+        // todo: Set startingY here
     }
 
     private IEnumerator CheckMachineStillMoving()

@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 6655595803195846081}
   - component: {fileID: 6617582696451290421}
   - component: {fileID: 1351793535110758706}
-  - component: {fileID: -6714755253890405298}
+  - component: {fileID: 2889097304812499300}
   m_Layer: 0
   m_Name: Boulder
   m_TagString: Untagged
@@ -198,7 +198,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -213,7 +213,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6714755253890405298
+--- !u!114 &2889097304812499300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,7 +222,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3928822700295605919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd67912fc404b41fcba74a47f9bb1c93, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f9b2c67bdc774e9f981d5bdc44cf7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  destroyEffectPrefab: {fileID: 2166607443523261218, guid: 67c47b8d8d4cf42ed8195d9589d17363, type: 3}

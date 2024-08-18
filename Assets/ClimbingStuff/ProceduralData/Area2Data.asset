@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f30276cf4d2744c9961c38c9ddcfbf0, type: 3}
+  m_Name: Area2Data
+  m_EditorClassIdentifier: 
+  areaBackground: {fileID: 0}
+  boxOptions:
+  - {fileID: 6165594269199983442, guid: 501d1da4e97e44a958141152f053ea4b, type: 3}
+  - {fileID: 6835443026076814981, guid: 2f20f6f6e3d9c46d6a960b07af44c808, type: 3}
+  numBoxesInArea: 0

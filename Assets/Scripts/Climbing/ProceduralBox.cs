@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static ProceduralData;
 
 public class ProceduralBox : MonoBehaviour
 {
     [Tooltip("Where to place the next ProceduralBox")]
     [SerializeField] private Transform nextToPlace;
     [SerializeField] private TriggerHolder atEndTrigger;
-    
+    private bool atEndTriggerIsSet;
+
+    private void Awake()
+    {
+        atEndTriggerIsSet = false;
+    }
 
     public Vector2 NextSpot()
     {
@@ -17,6 +21,15 @@ public class ProceduralBox : MonoBehaviour
 
     public void SetOnEnd(TriggerHolder.OnReachEnd atEnd)
     {
-        this.atEndTrigger.SetOnEnd(atEnd);
+        if (!atEndTriggerIsSet)
+        {
+            atEndTriggerIsSet = true;
+            this.atEndTrigger.AddToOnEnd(atEnd);
+            this.atEndTrigger.AddToOnEnd(() => Destroy(atEndTrigger.gameObject));
+        }
+        else
+        {
+            throw new System.Exception("Tried to set OnEnd twice");
+        }
     }
 }
