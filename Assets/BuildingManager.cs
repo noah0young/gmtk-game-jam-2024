@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
-    private Component[] Inmachine;
-    private Component[] Ininventory;
-
     public GameObject grid;
 
     public GameObject inventory;
@@ -25,28 +22,42 @@ public class BuildingManager : MonoBehaviour
 
     public void save() {
         int numComponentsInInventory = inventory.transform.childCount;
-        for (int i = 0; i < numComponentsInInventory; i++) {
-            var obj = inventory.transform.GetChild(i).gameObject;
+        GameManager.Instance.Ininventory = new List<Component>();
+        DraggableItem[] allDragableItems = inventory.GetComponentsInChildren<DraggableItem>();
+        foreach (DraggableItem item in allDragableItems)
+        { 
+            var obj = item.gameObject;
             var com = new Component
             {
                 locationInGrid = -1,
                 position = obj.transform.position,
                 rotation = obj.transform.rotation,
-                type = grid.transform.GetChild(i).gameObject.name
+                type = item.GetComponent<Cost>().componentType
             };
-            Ininventory[i] = com;
+            GameManager.Instance.Ininventory.Add(com);
         }
         // all the stuff in the grid
+        GameManager.Instance.Inmachine = new List<Component>();
         for (int i = 0; i < 100; i++)
         {
             if (grid.transform.GetChild(i).childCount <= 0) continue;
             var com = new Component
             {
                 locationInGrid = i,
-                type = grid.transform.GetChild(i).gameObject.name
+                type = grid.transform.GetChild(i).GetChild(0).GetComponent<Cost>().componentType
             };
-            Inmachine[Inmachine.Length] = com;
+            GameManager.Instance.Inmachine.Add(com);
         }
+        // DEBUG
+        foreach (Component c in GameManager.Instance.Ininventory)
+        {
+            Debug.Log("Inventory has " + c.type);
+        }
+        foreach (Component c in GameManager.Instance.Inmachine)
+        {
+            Debug.Log("Machine has " + c.type);
+        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene("ClimbScene");
     }
 }
 
@@ -57,4 +68,9 @@ public class Component
     public string type;
     public Vector3 position;
     public Quaternion rotation;
+
+    public Vector2 ClimbingPosition()
+    {
+        return new Vector2(locationInGrid % 10, 10 - locationInGrid / 10);
+    }
 }
