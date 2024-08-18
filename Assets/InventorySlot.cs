@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour, IDropHandler {
     [SerializeField] public List<Sprite> imageList;
+    [SerializeField] public AudioManager audioManager;
     public Image image;
     
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler {
             DraggableItem draggableItem = item.GetComponent<DraggableItem>();
             draggableItem.parentAfterDrag = transform;
             draggableItem.body.simulated = false;
+            audioManager.playPlace();
         }
     }
 }

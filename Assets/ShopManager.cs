@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,13 +20,36 @@ public class ShopManager : MonoBehaviour
     
     [SerializeField] public AudioManager audioManager;
     
-    private int money = 100;
+    [SerializeField] public GameManager gameManager;
+    
+    private int money;
+
+    private float timeScreenUpdated;
+    
+    private GameObject screenFail;
+    private GameObject screenSuccess;
+    [SerializeField] public TextMeshProUGUI screenMoney;
     
     // Start is called before the first frame update
     void Start()
     {
         //capsules = transform.GetComponentsInChildren<CapsuleManager>();
         RefreshCapsules();
+        money = gameManager.totalMoney;
+        screenSuccess = screen.transform.GetChild(0).gameObject;
+        screenFail = screen.transform.GetChild(1).gameObject;
+        screenMoney.text = "$" + money.ToString();
+    }
+
+    void Update()
+    {
+        float currentTime = Time.time;
+        if (currentTime - timeScreenUpdated > 2f)
+        {
+            screenSuccess.SetActive(false);
+            screenFail.SetActive(false);
+            screenMoney.gameObject.SetActive(true);
+        }
     }
 
     private void RefreshCapsules()
@@ -74,18 +98,24 @@ public class ShopManager : MonoBehaviour
     public void BuyItem(CapsuleManager capsule) {
         if (capsule.cost > money) {
             // cannot buy
-            screen.transform.GetChild(0).gameObject.SetActive(false);
-            screen.transform.GetChild(1).gameObject.SetActive(true);
+            screenSuccess.SetActive(false);
+            screenFail.SetActive(true);
+            screenMoney.gameObject.SetActive(false);
+            timeScreenUpdated = Time.time;
             audioManager.playDeny();
         }
         else
         {
             // purchase successful
-            screen.transform.GetChild(1).gameObject.SetActive(true);
-            screen.transform.GetChild(1).gameObject.SetActive(false);
+            screenSuccess.SetActive(true);
+            screenFail.SetActive(false);
+            screenMoney.gameObject.SetActive(false);
+            timeScreenUpdated = Time.time;
             GameObject go = Instantiate(capsule.componentPrefab,inventory.transform.position, inventory.transform.rotation, inventory.transform);
             go.GetComponent<Rigidbody2D>().simulated = true;
             money -= capsule.cost;
+            gameManager.totalMoney = money;
+            screenMoney.text = "$" + money.ToString();
             audioManager.playMoney();
             RefreshCapsules();
         }
