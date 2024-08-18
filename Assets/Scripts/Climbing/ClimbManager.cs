@@ -168,12 +168,12 @@ public class ClimbManager : MonoBehaviour
         Camera.main.backgroundColor = newBackgroundColor;
     }
 
-    public void MachineStopped()
+    public void MachineStopped(int score)
     {
-        StartCoroutine(MachineStoppedRoutine());
+        StartCoroutine(MachineStoppedRoutine(score));
     }
 
-    private IEnumerator MachineStoppedRoutine()
+    private IEnumerator MachineStoppedRoutine(int score)
     {
         Debug.Log("Machine Stopped!");
         for (int i = 0; i < NUM_BOXES_OPEN; i++)
@@ -181,7 +181,12 @@ public class ClimbManager : MonoBehaviour
             DestroyOldest();
         }
         yield return ChangeBackgroundColorTo(Color.black);
-        yield return ClimbingUI.ShowMachineStopped(5);
+        yield return ClimbingUI.ShowMachineStopped(CalculateMoneyFrom(score));
         UnityEngine.SceneManagement.SceneManager.LoadScene("BuildScene");
+    }
+
+    private int CalculateMoneyFrom(int score)
+    {
+        return score / 20 + 1;
     }
 }
