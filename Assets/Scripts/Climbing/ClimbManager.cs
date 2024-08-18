@@ -26,7 +26,7 @@ public class ClimbManager : MonoBehaviour
     private bool allBoxesHaveBeenPlaced;
 
     [Header("Constants")]
-    public static readonly int NUM_BOXES_OPEN = 5;
+    public static readonly int NUM_BOXES_OPEN = 7;
     /** The number of boxes at the beginning of the game that have no trigger to create a new box */
     public static readonly int NUM_BOX_OFFSET_NO_TRIGGER = 2;
 
@@ -38,6 +38,7 @@ public class ClimbManager : MonoBehaviour
         nextAreaIndex = 0;
         activeBoxes = new Queue<ProceduralBox>();
         nextSpotToPlace = firstSpotToPlace.position;
+        Camera.main.backgroundColor = proceduralDataAreas[0].backgroundColor;
         SwitchToNextArea();
         PlaceProceduralBox(firstProceduralBox);
         for (int i = 1; i < NUM_BOX_OFFSET_NO_TRIGGER; i++)
@@ -115,8 +116,11 @@ public class ClimbManager : MonoBehaviour
 
     private void DestroyOldest()
     {
-        ProceduralBox oldest = activeBoxes.Dequeue();
-        Destroy(oldest.gameObject);
+        if (activeBoxes.Count > 0)
+        {
+            ProceduralBox oldest = activeBoxes.Dequeue();
+            Destroy(oldest.gameObject);
+        } 
     }
 
     private void SwitchToNextArea()
@@ -127,6 +131,16 @@ public class ClimbManager : MonoBehaviour
         }
         numBoxesPlacedInCurArea = 0;
         curArea = proceduralGeneratorAreas[nextAreaIndex];
+        StartCoroutine(ChangeBackground());
+        nextAreaIndex += 1;
+    }
+
+    private IEnumerator ChangeBackground()
+    {
+        // Update background color
+        yield return ChangeBackgroundColorTo(curArea.GetBackgroundColor());
+
+        // Update background obj
         if (areaBackground != null)
         {
             Destroy(areaBackground);
@@ -138,11 +152,36 @@ public class ClimbManager : MonoBehaviour
             areaBackground.transform.SetParent(areaBackrgoundHolder);
             areaBackground.transform.position = areaBackrgoundHolder.position;
         }
-        nextAreaIndex += 1;
+    }
+
+    private IEnumerator ChangeBackgroundColorTo(Color newBackgroundColor)
+    {
+        Color prevBackgorundColor = Camera.main.backgroundColor;
+        float t = 0;
+        float backgroundChangeSpeed = .5f;
+        while (t < 1)
+        {
+            t += Time.deltaTime * backgroundChangeSpeed;
+            Camera.main.backgroundColor = Color.Lerp(prevBackgorundColor, newBackgroundColor, t);
+            yield return new WaitForEndOfFrame();
+        }
+        Camera.main.backgroundColor = newBackgroundColor;
     }
 
     public void MachineStopped()
     {
+        StartCoroutine(MachineStoppedRoutine());
+    }
+
+    private IEnumerator MachineStoppedRoutine()
+    {
+        Debug.Log("Machine Stopped!");
+        for (int i = 0; i < NUM_BOXES_OPEN; i++)
+        {
+            DestroyOldest();
+        }
+        yield return ChangeBackgroundColorTo(Color.black);
+        yield return ClimbingUI.ShowMachineStopped(5);
         UnityEngine.SceneManagement.SceneManager.LoadScene("BuildScene");
     }
 }

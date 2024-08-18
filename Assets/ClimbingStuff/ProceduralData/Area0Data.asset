@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f30276cf4d2744c9961c38c9ddcfbf0, type: 3}
-  m_Name: Area2Data
+  m_Name: Area0Data
   m_EditorClassIdentifier: 
   areaBackground: {fileID: 0}
   boxOptions:
-  - {fileID: 6165594269199983442, guid: 501d1da4e97e44a958141152f053ea4b, type: 3}
-  - {fileID: 6835443026076814981, guid: 2f20f6f6e3d9c46d6a960b07af44c808, type: 3}
+  - {fileID: 2533244012183572129, guid: 4fbe1ccb087f149d8bdbab47ced62479, type: 3}
+  - {fileID: 5381655823976797042, guid: 88aed1dbc2c724becb8cf81fd9788f0d, type: 3}
   numBoxesInArea: 5
-  backgroundColor: {r: 0.13469322, g: 0.079432175, b: 0.4811321, a: 0}
+  backgroundColor: {r: 0.21226418, g: 0.777253, b: 1, a: 0}

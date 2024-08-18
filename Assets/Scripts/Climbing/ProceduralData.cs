@@ -8,4 +8,5 @@ public class ProceduralData : ScriptableObject
     public GameObject areaBackground;
     public GameObject[] boxOptions;
     public int numBoxesInArea = 5;
+    public Color backgroundColor;
 }
