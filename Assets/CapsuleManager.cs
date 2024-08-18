@@ -15,18 +15,6 @@ public class CapsuleManager : MonoBehaviour
     [HideInInspector] public Sprite image;
     [HideInInspector] public int cost;
     [HideInInspector] public bool onSale;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Set(GameObject compPrefab, Sprite newImage, int newCost, bool newOnSale)
     {
