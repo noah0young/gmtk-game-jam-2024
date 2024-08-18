@@ -20,4 +20,5 @@ MonoBehaviour:
   - {fileID: 6346907661391814682, guid: 26f884f1b4e174c9fb3fc6a42581d25a, type: 3}
   - {fileID: 6835443026076814981, guid: 2f20f6f6e3d9c46d6a960b07af44c808, type: 3}
   - {fileID: 1546013119465339675, guid: 62e8a2c901c6f4aab8cb9760ebfd6c10, type: 3}
+  - {fileID: 688886358802159650, guid: 1b6eadf54443343e3b4e60d22fda1164, type: 3}
   numBoxesInArea: 5

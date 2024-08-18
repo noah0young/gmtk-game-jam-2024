@@ -9,9 +9,9 @@ public class TriggerHolder : MonoBehaviour
     private OnReachEnd atEnd;
     [SerializeField] private string[] tags;
 
-    public void SetOnEnd(OnReachEnd atEnd)
+    public void AddToOnEnd(OnReachEnd atEnd)
     {
-        this.atEnd = atEnd;
+        this.atEnd += atEnd;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
