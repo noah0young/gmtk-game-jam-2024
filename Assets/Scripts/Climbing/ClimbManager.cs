@@ -181,7 +181,10 @@ public class ClimbManager : MonoBehaviour
             DestroyOldest();
         }
         yield return ChangeBackgroundColorTo(Color.black);
-        yield return ClimbingUI.ShowMachineStopped(CalculateMoneyFrom(score));
+        int moneyEarned = CalculateMoneyFrom(score);
+        GameManager.Instance.totalMoney += moneyEarned;
+        ClimbingUI.SetMoneyTotalVal(GameManager.Instance.totalMoney);
+        yield return ClimbingUI.ShowMachineStopped(moneyEarned);
         UnityEngine.SceneManagement.SceneManager.LoadScene("BuildScene");
     }
 

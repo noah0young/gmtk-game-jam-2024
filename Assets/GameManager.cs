@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public List<Component> Inmachine;
     public List<Component> Ininventory;
+    public int totalMoney = 0;
 
     private void Awake()
     {
