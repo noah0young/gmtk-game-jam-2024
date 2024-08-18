@@ -1956,7 +1956,7 @@ MonoBehaviour:
   scoreValText: {fileID: 996450199}
   machineStoppedCanvas: {fileID: 2047575808}
   moneyTotalBoxObj: {fileID: 259974549}
-  moneyTotalValText: {fileID: 0}
+  moneyTotalValText: {fileID: 1507980959}
   continueButtonObj: {fileID: 458846184}
   moneyHolder: {fileID: 1401303441}
   moneyPrefab: {fileID: 2873749241041783739, guid: b5dc971fc7c094e639cce302b840fb78, type: 3}
