@@ -33,6 +33,7 @@ public class ShopManager : MonoBehaviour
     private void RefreshCapsules()
     {
         GameObject temp = randomComponent();
+        Debug.Log(temp);
         int tempCost = getCostForComponent(temp);
         bool tempSale = isOnSale();
         if (tempSale)
@@ -59,6 +60,7 @@ public class ShopManager : MonoBehaviour
     }
 
     private GameObject randomComponent() {
+        Debug.Log(possibleComponents.Length);
         return possibleComponents[Random.Range(0, possibleComponents.Length)];
     }
 
