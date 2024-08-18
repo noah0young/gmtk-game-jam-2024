@@ -9,25 +9,23 @@ using Random = UnityEngine.Random;
 public class ShopManager : MonoBehaviour
 {
 
-    [SerializeField] public GameObject[] possibleComponents;
+    [SerializeField] public List<GameObject> possibleComponents;
 
-    [SerializeField] public CapsuleManager[] capsules;
+    [SerializeField] public CapsuleManager[] allCapsules = new CapsuleManager[3];
     
     [SerializeField] public GameObject inventory;
 
     [SerializeField] public GameObject screen;
+    
+    [SerializeField] public AudioManager audioManager;
     
     private int money = 100;
     
     // Start is called before the first frame update
     void Start()
     {
+        //capsules = transform.GetComponentsInChildren<CapsuleManager>();
         RefreshCapsules();
-    }
-
-    // Update is called once per frame
-    void Update() {
-        
     }
 
     private void RefreshCapsules()
@@ -36,11 +34,10 @@ public class ShopManager : MonoBehaviour
         Debug.Log(temp);
         int tempCost = getCostForComponent(temp);
         bool tempSale = isOnSale();
-        if (tempSale)
-        {
+        if (tempSale) {
             tempCost /= 2;
         }
-        capsules[0].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
+        allCapsules[0].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
         temp = randomComponent();
         tempCost = getCostForComponent(temp);
         tempSale = isOnSale();
@@ -48,7 +45,7 @@ public class ShopManager : MonoBehaviour
         {
             tempCost /= 2;
         }
-        capsules[1].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
+        allCapsules[1].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
         temp = randomComponent();
         tempCost = getCostForComponent(temp);
         tempSale = isOnSale();
@@ -56,18 +53,18 @@ public class ShopManager : MonoBehaviour
         {
             tempCost /= 2;
         }
-        capsules[2].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
+        allCapsules[2].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
     }
 
     private GameObject randomComponent() {
-        Debug.Log(possibleComponents.Length);
-        return possibleComponents[Random.Range(0, possibleComponents.Length)];
+        Debug.Log(possibleComponents.Count);
+        return possibleComponents[Random.Range(0, possibleComponents.Count)];
     }
 
     private int getCostForComponent(GameObject component) {
         int baseCost = component.GetComponent<Cost>().baseCost;
         int extra = Random.Range(-1, 2);
-        return math.min(1, baseCost + extra);
+        return math.max(1, baseCost + extra);
     }
 
     private bool isOnSale() {
@@ -79,13 +76,17 @@ public class ShopManager : MonoBehaviour
             // cannot buy
             screen.transform.GetChild(0).gameObject.SetActive(false);
             screen.transform.GetChild(1).gameObject.SetActive(true);
+            audioManager.playDeny();
         }
         else
         {
             // purchase successful
             screen.transform.GetChild(1).gameObject.SetActive(true);
             screen.transform.GetChild(1).gameObject.SetActive(false);
-            GameObject go = Instantiate(capsule.componentPrefab,inventory.transform);
+            GameObject go = Instantiate(capsule.componentPrefab,inventory.transform.position, inventory.transform.rotation, inventory.transform);
+            go.GetComponent<Rigidbody2D>().simulated = true;
+            money -= capsule.cost;
+            audioManager.playMoney();
             RefreshCapsules();
         }
     }
