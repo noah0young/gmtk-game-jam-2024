@@ -444,8 +444,8 @@ MonoBehaviour:
   - {fileID: 1355445673}
   - {fileID: 596376361}
   - {fileID: 371297935}
-  buyButtons: []
-  Inventory: {fileID: 1002948827}
+  inventory: {fileID: 1002948827}
+  screen: {fileID: 2065660886}
 --- !u!1001 &44756122
 PrefabInstance:
   m_ObjectHideFlags: 0
