@@ -36,11 +36,7 @@ public class ComponentDetails : MonoBehaviour
     }
     public virtual void AddJoint(GameObject otherBox)
     {
-        FixedJoint2D joint = GetComponent<FixedJoint2D>();
-        if (joint == null)
-        {
-            joint = gameObject.AddComponent<FixedJoint2D>();
-        }
+        FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
 
         joint.connectedBody = otherBox.GetComponent<Rigidbody2D>();
     }
