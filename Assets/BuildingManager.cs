@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
@@ -7,20 +9,32 @@ public class BuildingManager : MonoBehaviour
     public GameObject grid;
 
     public GameObject inventory;
+
+    public ComponentConversion[] conversionDictionary;
     
     
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
+        // Load machine into the grid
+        foreach (var component in GameManager.Instance.Inmachine)
+        {
+            GameObject go = Instantiate(findComponentConversion(component.type),grid.transform.GetChild(component.locationInGrid));
+        }
         
+        // load remaining items into the inventory
+        foreach (var component in GameManager.Instance.Ininventory)
+        {
+            GameObject go = Instantiate(findComponentConversion(component.type),component.position, component.rotation, inventory.transform);
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
 
-    public void save() {
+    public void Save() {
         int numComponentsInInventory = inventory.transform.childCount;
         GameManager.Instance.Ininventory = new List<Component>();
         DraggableItem[] allDragableItems = inventory.GetComponentsInChildren<DraggableItem>();
@@ -59,6 +73,19 @@ public class BuildingManager : MonoBehaviour
         }
         UnityEngine.SceneManagement.SceneManager.LoadScene("ClimbScene");
     }
+    
+    private GameObject findComponentConversion(string type)
+    {
+        foreach (var t in conversionDictionary)
+        {
+            if (t.name == type)
+            {
+                return t.prefab;
+            }
+        }
+
+        throw new Exception("Component not found, could not find " + type);
+    }
 }
 
 public class Component
@@ -73,4 +100,10 @@ public class Component
     {
         return new Vector2(locationInGrid % 10, 10 - locationInGrid / 10);
     }
+}
+
+[Serializable] public class ComponentConversion
+{
+    public string name;
+    public GameObject prefab;
 }

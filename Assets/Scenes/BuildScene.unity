@@ -14149,6 +14149,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 719884058}
   inventory: {fileID: 1002948827}
+  conversionDictionary:
+  - name: Block
+    prefab: {fileID: 2853889392972624042, guid: c919ea1b3c6c94bff8984be0a840a98c, type: 3}
+  - name: Wheel
+    prefab: {fileID: 5259980033572240508, guid: 5c9baffc30997a54e8803f1eec2bb9b4, type: 3}
+  - name: Battery
+    prefab: {fileID: 5348727263590980045, guid: f626632cb42e7cb4599aa93ab82b9101, type: 3}
+  - name: Pickaxe
+    prefab: {fileID: 2246922068646805613, guid: e28f69b607901144090d4986fdb0a4b9, type: 3}
+  - name: Drill
+    prefab: {fileID: 3652697271337102212, guid: 63b631d09b32b9e4ab6ae5b69a9ce79f, type: 3}
+  - name: Rocket
+    prefab: {fileID: 4524430117270895217, guid: b792f5b8c492f2640877bfe91680088b, type: 3}
 --- !u!224 &2142937350 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6412321700159805558, guid: 9c17f507f59dd95419634c34bde63f50, type: 3}
