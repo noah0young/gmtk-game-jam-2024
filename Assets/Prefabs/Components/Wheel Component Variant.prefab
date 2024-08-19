@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.6685079
       objectReference: {fileID: 0}
+    - target: {fileID: 3679818657158432632, guid: d44de15a6785ccc4bb68218a1c598c44, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 24122089cd1a14362adbd66ba60c70b1, type: 2}
     - target: {fileID: 6359759219846884813, guid: d44de15a6785ccc4bb68218a1c598c44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.56776
@@ -142,6 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceThreshold: 1.1
-  fuelRate: 0
+  fuelRate: 0.1
   dampingRatio: 0
   frequency: 100
