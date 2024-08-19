@@ -21,12 +21,14 @@ public class BuildingManager : MonoBehaviour
             foreach (var component in GameManager.Instance.Inmachine)
             {
                 GameObject go = Instantiate(findComponentConversion(component.type), Vector2.zero, component.rotation, grid.transform.GetChild(component.locationInGrid));
+                go.GetComponent<Rigidbody2D>().simulated = false;
             }
 
             // load remaining items into the inventory
             foreach (var component in GameManager.Instance.Ininventory)
             {
                 GameObject go = Instantiate(findComponentConversion(component.type), component.position, component.rotation, inventory.transform);
+                go.GetComponent<Rigidbody2D>().simulated = true;
             }
         }
     }
