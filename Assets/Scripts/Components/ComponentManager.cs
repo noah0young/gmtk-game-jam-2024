@@ -7,11 +7,13 @@ public class ComponentManager : MonoBehaviour
 {
     private GameObject[] taggedObjects; 
     public float totalFuel;
+    private float origTotalFuel;
     // Start is called before the first frame update
     void Start()
     {
         this.taggedObjects = getTaggedObjects();
         totalFuel = getTotalFuel();
+        origTotalFuel = totalFuel;
     }
 
     // Update is called once per frame
@@ -20,6 +22,7 @@ public class ComponentManager : MonoBehaviour
         if (totalFuel > 0)
         {
             depleteFuel();
+            ClimbingUI.SetBatteryVal(totalFuel, origTotalFuel);
         }
         else
         {
