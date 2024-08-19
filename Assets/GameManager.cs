@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public List<Component> Inmachine;
-    public List<Component> Ininventory;
+    public List<Component> Inmachine = new List<Component>();
+    public List<Component> Ininventory = new List<Component>();
     public int totalMoney = 0;
 
     private void Awake()

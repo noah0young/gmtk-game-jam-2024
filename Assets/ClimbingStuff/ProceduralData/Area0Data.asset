@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaBackground: {fileID: 0}
   boxOptions:
-  - {fileID: 2533244012183572129, guid: 4fbe1ccb087f149d8bdbab47ced62479, type: 3}
-  - {fileID: 5381655823976797042, guid: 88aed1dbc2c724becb8cf81fd9788f0d, type: 3}
+  - {fileID: 688886358802159650, guid: 1b6eadf54443343e3b4e60d22fda1164, type: 3}
+  - {fileID: 5583047766573841251, guid: 6e3a3bf955b9c42328711a0ac81447bd, type: 3}
+  - {fileID: 1546013119465339675, guid: 62e8a2c901c6f4aab8cb9760ebfd6c10, type: 3}
   numBoxesInArea: 5
   backgroundColor: {r: 0.21226418, g: 0.777253, b: 1, a: 0}

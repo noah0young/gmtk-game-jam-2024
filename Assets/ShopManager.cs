@@ -19,8 +19,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] public GameObject screen;
     
     [SerializeField] public AudioManager audioManager;
-    
-    [SerializeField] public GameManager gameManager;
+  
     
     private int money;
 
@@ -35,7 +34,7 @@ public class ShopManager : MonoBehaviour
     {
         //capsules = transform.GetComponentsInChildren<CapsuleManager>();
         RefreshCapsules();
-        money = gameManager.totalMoney;
+        money = GameManager.Instance.totalMoney;
         screenSuccess = screen.transform.GetChild(0).gameObject;
         screenFail = screen.transform.GetChild(1).gameObject;
         screenMoney.text = "$" + money.ToString();
@@ -114,7 +113,7 @@ public class ShopManager : MonoBehaviour
             GameObject go = Instantiate(capsule.componentPrefab,inventory.transform.position, inventory.transform.rotation, inventory.transform);
             go.GetComponent<Rigidbody2D>().simulated = true;
             money -= capsule.cost;
-            gameManager.totalMoney = money;
+            GameManager.Instance.totalMoney = money;
             screenMoney.text = "$" + money.ToString();
             audioManager.playMoney();
             RefreshCapsules();
