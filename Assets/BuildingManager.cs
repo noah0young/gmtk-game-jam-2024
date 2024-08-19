@@ -84,7 +84,7 @@ public class BuildingManager : MonoBehaviour
         {
             Debug.Log("Machine has " + c.type);
         }
-        UnityEngine.SceneManagement.SceneManager.LoadScene("ClimbScene");
+        
     }
     
     private GameObject findComponentConversion(string type)
@@ -98,6 +98,16 @@ public class BuildingManager : MonoBehaviour
         }
 
         throw new Exception("Component not found, could not find " + type);
+    }
+
+    public void MoveToClimbing()
+    {
+        // Can only move to climbing if there's at least one component in the grid
+        if (grid.GetComponentsInChildren<DraggableItem>().Length <= 0)
+        {
+            return;
+        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene("ClimbScene");
     }
 }
 
