@@ -85,7 +85,7 @@ public class ClimbingUI : MonoBehaviour
         {
             GameObject moneyIcon = Instantiate(moneyPrefab);
             moneyIcon.transform.SetParent(moneyHolder);
-            yield return new WaitForSeconds(.5f / i + 1); // Time between money show
+            yield return new WaitForSeconds(.5f / (i + 1)); // Time between money show
         }
     }
 
