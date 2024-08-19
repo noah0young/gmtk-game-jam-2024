@@ -8099,7 +8099,7 @@ GameObject:
   - component: {fileID: 1115519200}
   - component: {fileID: 1115519199}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Day Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14464,6 +14464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalMoney: 60
+  dayCount: 0
 --- !u!4 &2094021699
 Transform:
   m_ObjectHideFlags: 0
@@ -14951,6 +14952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 719884058}
   inventory: {fileID: 1002948827}
+  dayCounter: {fileID: 1115519199}
   conversionDictionary:
   - name: Block
     prefab: {fileID: 2853889392972624042, guid: c919ea1b3c6c94bff8984be0a840a98c, type: 3}

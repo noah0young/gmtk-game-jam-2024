@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class BuildingManager : MonoBehaviour
     public GameObject grid;
 
     public GameObject inventory;
+
+    public TextMeshProUGUI dayCounter;
 
     public ComponentConversion[] conversionDictionary;
     
@@ -31,6 +34,10 @@ public class BuildingManager : MonoBehaviour
                 go.GetComponent<Rigidbody2D>().simulated = true;
             }
         }
+
+        GameManager.Instance.dayCount += 1;
+        dayCounter.text = "Day " + GameManager.Instance.dayCount.ToString(); 
+        
     }
 
     // Update is called once per frame
