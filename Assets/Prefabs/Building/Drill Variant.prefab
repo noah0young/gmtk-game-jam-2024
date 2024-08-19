@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1121347010082807983
+--- !u!1001 &1919697491609779073
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,18 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 653092677693302618, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
-      propertyPath: m_Simulated
-      value: 0
+    - target: {fileID: 2790765600260522510, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
+      propertyPath: baseCost
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2790765600260522510, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
       propertyPath: componentType
-      value: Block
+      value: Drill
       objectReference: {fileID: 0}
     - target: {fileID: 2888177774974849029, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
       propertyPath: m_Name
-      value: BlcokComponent Variant
+      value: Drill Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5749406770583958865, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b00a8ff4e70c0624db093139e7578fe0, type: 3}
     - target: {fileID: 8375380322487097399, guid: 4b93c4dc33ace3443aacf5359620aad8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
