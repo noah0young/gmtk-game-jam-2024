@@ -69,6 +69,7 @@ public class ClimbingMachineManager : MonoBehaviour
         {
             GameObject obj = Instantiate(FindComponentPrefab(component.type));
             obj.transform.position = component.ClimbingPosition() + (Vector2)machineStartPos.position;
+            obj.transform.rotation.SetEulerAngles(new Vector3(0, 0, component.rotation.eulerAngles.z));
             machineTracker = obj.transform;
         }
 

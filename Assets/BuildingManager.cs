@@ -15,16 +15,19 @@ public class BuildingManager : MonoBehaviour
     
     // Start is called before the first frame update
     private void Start() {
-        // Load machine into the grid
-        foreach (var component in GameManager.Instance.Inmachine)
+        if (GameManager.Instance != null)
         {
-            GameObject go = Instantiate(findComponentConversion(component.type),grid.transform.GetChild(component.locationInGrid));
-        }
-        
-        // load remaining items into the inventory
-        foreach (var component in GameManager.Instance.Ininventory)
-        {
-            GameObject go = Instantiate(findComponentConversion(component.type),component.position, component.rotation, inventory.transform);
+            // Load machine into the grid
+            foreach (var component in GameManager.Instance.Inmachine)
+            {
+                GameObject go = Instantiate(findComponentConversion(component.type), Vector2.zero, component.rotation, grid.transform.GetChild(component.locationInGrid));
+            }
+
+            // load remaining items into the inventory
+            foreach (var component in GameManager.Instance.Ininventory)
+            {
+                GameObject go = Instantiate(findComponentConversion(component.type), component.position, component.rotation, inventory.transform);
+            }
         }
     }
 
@@ -58,6 +61,7 @@ public class BuildingManager : MonoBehaviour
             var com = new Component
             {
                 locationInGrid = i,
+                rotation = grid.transform.GetChild(i).GetChild(0).transform.rotation,
                 type = grid.transform.GetChild(i).GetChild(0).GetComponent<Cost>().componentType
             };
             GameManager.Instance.Inmachine.Add(com);
