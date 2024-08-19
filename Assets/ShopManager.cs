@@ -54,7 +54,7 @@ public class ShopManager : MonoBehaviour
     private void RefreshCapsules()
     {
         GameObject temp = randomComponent();
-        Debug.Log(temp);
+        //Debug.Log(temp);
         int tempCost = getCostForComponent(temp);
         bool tempSale = isOnSale();
         if (tempSale) {
@@ -80,7 +80,7 @@ public class ShopManager : MonoBehaviour
     }
 
     private GameObject randomComponent() {
-        Debug.Log(possibleComponents.Count);
+        //Debug.Log(possibleComponents.Count);
         return possibleComponents[Random.Range(0, possibleComponents.Count)];
     }
 
@@ -118,5 +118,13 @@ public class ShopManager : MonoBehaviour
             audioManager.playMoney();
             RefreshCapsules();
         }
+    }
+
+    public void SellItem(string itemname = "no name")
+    {
+        money += 1;
+        GameManager.Instance.totalMoney = money;
+        screenMoney.text = "$" + money.ToString();
+        Debug.Log(itemname);
     }
 }
