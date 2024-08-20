@@ -40,4 +40,9 @@ public class ComponentDetails : MonoBehaviour
 
         joint.connectedBody = otherBox.GetComponent<Rigidbody2D>();
     }
+
+    public virtual float GetFuelRate()
+    {
+        return fuelRate;
+    }
 }

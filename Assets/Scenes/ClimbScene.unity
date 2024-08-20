@@ -1221,6 +1221,8 @@ MonoBehaviour:
     machineComponentPrefab: {fileID: 3418669006938225889, guid: 2ba696512bdbc4922a0fa5767d909ca3, type: 3}
   - name: Googly Eye
     machineComponentPrefab: {fileID: 8588292646551735869, guid: 7944a6f6c86c6c14fa91639681840058, type: 3}
+  - name: Drill
+    machineComponentPrefab: {fileID: 5133498594546880946, guid: 704fc06be3ee94345b84c4c93ea81e4e, type: 3}
   climbManager: {fileID: 1428799584}
   machineTrackerCollider: {fileID: 645460272}
 --- !u!4 &833746618
