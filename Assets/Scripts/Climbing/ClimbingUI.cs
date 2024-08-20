@@ -22,6 +22,7 @@ public class ClimbingUI : MonoBehaviour
     [SerializeField] private GameObject moneyPrefab;
     [SerializeField] private GameObject finalScoreHolder;
     [SerializeField] private TMP_Text finalScoreText;
+    [SerializeField] private GameObject youWinUI;
     private bool onContinueClick;
 
     private void Start()
@@ -93,5 +94,10 @@ public class ClimbingUI : MonoBehaviour
     public void ContinueClick()
     {
         onContinueClick = true;
+    }
+
+    public static void PlayYouWin()
+    {
+        instance.youWinUI.SetActive(true);
     }
 }
