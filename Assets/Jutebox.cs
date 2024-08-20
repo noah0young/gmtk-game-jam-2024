@@ -8,12 +8,12 @@ public class Jutebox : MonoBehaviour
 
     void Start()
     {
-        AudioManager.SetJutebox(this);
+        AudioManager.SetJukebox(this);
     }
 
     private void OnDestroy()
     {
-        AudioManager.RemoveJutebox(this);
+        AudioManager.RemoveJukebox(this);
     }
 
     public string GetTrackName()

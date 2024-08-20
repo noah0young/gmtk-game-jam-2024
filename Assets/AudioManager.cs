@@ -35,10 +35,10 @@ public class AudioManager : MonoBehaviour
         else
         {
             Instance = this;
-            // inits jutebox tracks
-            foreach (MusicStruct juteboxTrack in jukeboxTracks)
+            // inits jukebox tracks
+            foreach (MusicStruct jukeboxTrack in jukeboxTracks)
             {
-                remainingJukeboxTracks.Add(juteboxTrack);
+                remainingJukeboxTracks.Add(jukeboxTrack);
             }
             DontDestroyOnLoad(gameObject);
         }
@@ -119,17 +119,17 @@ public class AudioManager : MonoBehaviour
         AudioManager.volume = volume;
     }
 
-    public static void SetJutebox(Jutebox box)
+    public static void SetJukebox(Jutebox box)
     {
         jukeboxes.Add(box);
         if (curTrack != null)
         {
             curTrack.audio.Stop();
         }
-        PlayRandomjuteboxTrack(box);
+        PlayRandomJukeboxTrack(box);
     }
 
-    private static void PlayRandomjuteboxTrack(Jutebox box)
+    private static void PlayRandomJukeboxTrack(Jutebox box)
     {
         int len = Instance.remainingJukeboxTracks.Count;
         MusicStruct randTrack = Instance.remainingJukeboxTracks[UnityEngine.Random.Range(0, len)];
@@ -139,7 +139,7 @@ public class AudioManager : MonoBehaviour
         box.SetTrackName(randTrack.name);
     }
 
-    public static void RemoveJutebox(Jutebox box)
+    public static void RemoveJukebox(Jutebox box)
     {
         MusicStruct playedTrack = GetMusicStruct(box.GetTrackName(), Instance.jukeboxTracks);
         playedTrack.audio.Stop();

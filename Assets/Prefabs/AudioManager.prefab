@@ -1764,7 +1764,16 @@ MonoBehaviour:
   - name: Climbing
     volume: 0.5
     audio: {fileID: 7072930413523375441}
-  jukeboxTracks: []
+  jukeboxTracks:
+  - name: Jukebox1
+    volume: 0.5
+    audio: {fileID: 7493859050417121478}
+  - name: Jukebox2
+    volume: 0.5
+    audio: {fileID: 124220381402938976}
+  - name: Jukebox3
+    volume: 0.5
+    audio: {fileID: 3239651742951244183}
 --- !u!1 &7487496470627541365
 GameObject:
   m_ObjectHideFlags: 0
