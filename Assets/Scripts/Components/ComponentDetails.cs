@@ -17,7 +17,7 @@ public class ComponentDetails : MonoBehaviour
   
     }
 
-    void CheckForAdjacentBoxes()
+    protected void CheckForAdjacentBoxes()
     {
         GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Component");
 

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: mass
       value: 0.97
       objectReference: {fileID: 0}
+    - target: {fileID: -8594284788498904283, guid: d44de15a6785ccc4bb68218a1c598c44, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2003752923754918834, guid: d44de15a6785ccc4bb68218a1c598c44, type: 3}
       propertyPath: m_Color.b
       value: 0.3013083
@@ -93,4 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca54783b6499674f927284b34269b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceThreshold: 1.1
+  fuelRate: 0
   fuel: 10

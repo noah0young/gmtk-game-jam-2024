@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1478325068071572410, guid: 28cd8cd6448986d46a8220f581d80e6a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1375594185172111318, guid: 28cd8cd6448986d46a8220f581d80e6a, type: 3}
       propertyPath: m_Name
       value: Rocket Component Variant
@@ -64,8 +68,36 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.63879496
       objectReference: {fileID: 0}
+    - target: {fileID: 8110985730533171427, guid: 28cd8cd6448986d46a8220f581d80e6a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1375594185172111318, guid: 28cd8cd6448986d46a8220f581d80e6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6212992954862518767}
   m_SourcePrefab: {fileID: 100100000, guid: 28cd8cd6448986d46a8220f581d80e6a, type: 3}
+--- !u!1 &8708093771840879314 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1375594185172111318, guid: 28cd8cd6448986d46a8220f581d80e6a, type: 3}
+  m_PrefabInstance: {fileID: 7768228571849110788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6212992954862518767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708093771840879314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7778cf21941cee94d8019bab44d0285b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceThreshold: 1.1
+  fuelRate: 5
+  fuel: 10
+  thrustForce: 10
