@@ -18698,7 +18698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2039fdd12edb4afc872ea32175f1042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMoney: 500
+  totalMoney: 60
+  totalMoneyEarned: 0
   win: 0
   dayCount: 0
 --- !u!4 &2094021699
