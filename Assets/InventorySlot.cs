@@ -31,7 +31,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler {
             DraggableItem draggableItem = item.GetComponent<DraggableItem>();
             draggableItem.parentAfterDrag = transform;
             draggableItem.body.simulated = false;
-            audioManager.playPlace();
+            AudioManager.PlaySFX("Place");
         }
     }
 }
