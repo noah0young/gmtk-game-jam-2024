@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class TrashContainer : MonoBehaviour, IDropHandler {
     [SerializeField] public ShopManager shopManager;
-    [SerializeField] AudioManager audioManager;
     // Start is called before the first frame update
     
     public void OnDrop(PointerEventData eventData) {

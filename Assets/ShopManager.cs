@@ -18,9 +18,6 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] public GameObject screen;
     
-    [SerializeField] public AudioManager audioManager;
-  
-    
     private int money;
 
     private float timeScreenUpdated;

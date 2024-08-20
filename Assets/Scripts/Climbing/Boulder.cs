@@ -9,6 +9,7 @@ public class Boulder : BreakableObj
 
     protected override void Break()
     {
+        AudioManager.PlaySFX("RockBreak");
         if (destroyEffectPrefab != null)
         {
             GameObject destroyEffect = Instantiate(destroyEffectPrefab);
