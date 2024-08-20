@@ -29,11 +29,6 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        input.Player.RocketFly.Disable();
-    }
-
     private IEnumerator TutorialRoutine()
     {
         tutorialCanvas.SetActive(true);
