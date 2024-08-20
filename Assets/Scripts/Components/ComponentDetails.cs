@@ -5,7 +5,7 @@ using UnityEngine;
 public class ComponentDetails : MonoBehaviour
 {
     public float distanceThreshold = 1.1f;
-    public float fuelRate = 0f;
+    public float fuelRate;
 
     void Start()
     {
