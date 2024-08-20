@@ -485,7 +485,6 @@ MonoBehaviour:
   - {fileID: 371297936}
   inventory: {fileID: 1002948827}
   screen: {fileID: 2065660886}
-  audioManager: {fileID: 0}
   screenMoney: {fileID: 766798694}
 --- !u!1001 &44756122
 PrefabInstance:
@@ -10071,7 +10070,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopManager: {fileID: 36561390}
-  audioManager: {fileID: 0}
 --- !u!114 &1241151966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16907,7 +16905,7 @@ MonoBehaviour:
     prefab: {fileID: 4524430117270895217, guid: b792f5b8c492f2640877bfe91680088b, type: 3}
   - name: Jukebox
     prefab: {fileID: 5409949533950091243, guid: 0c4e6aec401c2044fb31e70374e11260, type: 3}
-  - name: Eye
+  - name: Googly Eye
     prefab: {fileID: 1658309761303390905, guid: 4b6a91ac275c9804eb842a57a8f7c656, type: 3}
   - name: Core
     prefab: {fileID: 3758277940150311570, guid: 6529e6ad0bbc36f49b681f9068e84e50, type: 3}
