@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private MusicStruct[] sfx;
     [SerializeField] private MusicStruct[] tracks;
     [SerializeField] private MusicStruct[] juteboxTracks;
-    private List<MusicStruct> remainingJuteboxTracks;
+    private List<MusicStruct> remainingJuteboxTracks = new List<MusicStruct>();
 
     private static List<Jutebox> juteboxes = new List<Jutebox>();
     private static MusicStruct curTrack;
@@ -50,12 +50,18 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    public static void PlaySFX(string name)
+    public static void PlaySFX(string name, bool fromStart = false)
     {
-        PlayMusic(name, Instance.sfx);
+        MusicStruct music = GetMusicStruct(name, Instance.sfx);
+        music.audio.volume = music.volume * volume;
+        if (fromStart)
+        {
+            music.audio.Stop();
+        }
+        music.audio.Play();
     }
 
-    public static void PlayTrack(string name)
+    public static void PlayTrack(string name, bool fromStart = false)
     {
         foreach (MusicStruct music in Instance.tracks)
         {
@@ -63,22 +69,17 @@ public class AudioManager : MonoBehaviour
         }
         if (name != "" && name != "None")
         {
-            PlayMusic(name, Instance.tracks);
-        }
-    }
-
-    private static void PlayMusic(string name, MusicStruct[] musics, bool fromStart = false)
-    {
-        MusicStruct music = GetMusicStruct(name, musics);
-        music.audio.volume = music.volume * volume;
-        if (fromStart)
-        {
-            music.audio.Stop();
-        }
-        curTrack = music;
-        if (juteboxes.Count <= 0)
-        {
-            music.audio.Play();
+            MusicStruct music = GetMusicStruct(name, Instance.tracks);
+            music.audio.volume = music.volume * volume;
+            if (fromStart)
+            {
+                music.audio.Stop();
+            }
+            curTrack = music;
+            if (juteboxes.Count <= 0)
+            {
+                music.audio.Play();
+            }
         }
     }
 
