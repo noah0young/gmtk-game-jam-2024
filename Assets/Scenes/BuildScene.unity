@@ -476,7 +476,7 @@ MonoBehaviour:
   - componentPrefab: {fileID: 2246922068646805613, guid: e28f69b607901144090d4986fdb0a4b9, type: 3}
     weight: 2
   - componentPrefab: {fileID: 3652697271337102212, guid: 63b631d09b32b9e4ab6ae5b69a9ce79f, type: 3}
-    weight: 0
+    weight: 1
   - componentPrefab: {fileID: 4524430117270895217, guid: b792f5b8c492f2640877bfe91680088b, type: 3}
     weight: 2
   allCapsules:
@@ -18691,6 +18691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalMoney: 500
+  win: 0
   dayCount: 0
 --- !u!4 &2094021699
 Transform:
