@@ -1219,6 +1219,10 @@ MonoBehaviour:
     machineComponentPrefab: {fileID: 7727581674712409104, guid: d44de15a6785ccc4bb68218a1c598c44, type: 3}
   - name: Jukebox
     machineComponentPrefab: {fileID: 3418669006938225889, guid: 2ba696512bdbc4922a0fa5767d909ca3, type: 3}
+  - name: Eye
+    machineComponentPrefab: {fileID: 7727581674712409104, guid: d44de15a6785ccc4bb68218a1c598c44, type: 3}
+  - name: Drill
+    machineComponentPrefab: {fileID: 5133498594546880946, guid: 704fc06be3ee94345b84c4c93ea81e4e, type: 3}
   climbManager: {fileID: 1428799584}
   machineTrackerCollider: {fileID: 645460272}
 --- !u!4 &833746618
