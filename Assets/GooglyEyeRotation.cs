@@ -28,7 +28,8 @@ public class GooglyEyeRotation : MonoBehaviour
             image.sprite = d;
             return;
         } */
-        Debug.Log(transform.rotation.eulerAngles.z + "       "+ transform.rotation.eulerAngles.z % 360);
+        
+        //Debug.Log(transform.rotation.eulerAngles.z + "       "+ transform.rotation.eulerAngles.z % 360);
 
         switch (transform.rotation.eulerAngles.z % 360)
         {
