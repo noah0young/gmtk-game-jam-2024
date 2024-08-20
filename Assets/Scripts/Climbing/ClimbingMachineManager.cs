@@ -17,7 +17,7 @@ public class ClimbingMachineManager : MonoBehaviour
     [SerializeField] private Transform machineStartPos;
     [SerializeField] private MachineComponentInfo[] machineComponentDictionary;
     [SerializeField] private ClimbManager climbManager;
-    [SerializeField] private GameObject fakeMachine; // DEBUG
+    [SerializeField] private GameObject machineTrackerCollider;
 
     [Header("Game State")]
     private float startingY;
@@ -72,6 +72,7 @@ public class ClimbingMachineManager : MonoBehaviour
             obj.transform.rotation.SetEulerAngles(new Vector3(0, 0, component.rotation.eulerAngles.z));
             machineTracker = obj.transform;
         }
+        machineTrackerCollider.transform.SetParent(machineTracker);
 
         vcm.Follow = machineTracker;
         this.startingY = machineTracker.transform.position.y;

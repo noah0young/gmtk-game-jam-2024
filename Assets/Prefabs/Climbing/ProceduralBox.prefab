@@ -387,8 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - Component
-  - WheelComponent
+  - Player
 --- !u!1 &7564405041380726000
 GameObject:
   m_ObjectHideFlags: 0
