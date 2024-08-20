@@ -16,5 +16,5 @@ MonoBehaviour:
   boxOptions:
   - {fileID: 6165594269199983442, guid: 501d1da4e97e44a958141152f053ea4b, type: 3}
   - {fileID: 6835443026076814981, guid: 2f20f6f6e3d9c46d6a960b07af44c808, type: 3}
-  numBoxesInArea: 5
+  numBoxesInArea: 2
   backgroundColor: {r: 0.13469322, g: 0.079432175, b: 0.4811321, a: 0}

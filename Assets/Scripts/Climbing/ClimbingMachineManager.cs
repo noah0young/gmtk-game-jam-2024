@@ -103,7 +103,14 @@ public class ClimbingMachineManager : MonoBehaviour
             else
             {
                 // Failure
-                MachineStopped();
+                if (!GameManager.Instance.win)
+                {
+                    MachineStopped();
+                }
+                else
+                {
+                    ClimbingUI.PlayYouWin();
+                }
                 running = false;
             }
             machinePrevLocation = machineTracker.position;
