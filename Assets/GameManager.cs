@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public delegate void OnClick();
+
     public static GameManager Instance { get; private set; }
     public List<Component> Inmachine = new List<Component>();
     public List<Component> Ininventory = new List<Component>();

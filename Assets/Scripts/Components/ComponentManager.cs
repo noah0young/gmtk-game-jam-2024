@@ -59,11 +59,7 @@ public class ComponentManager : MonoBehaviour
             if (obj != null)
             {
 
-                totalFuelRate += obj.fuelRate;
-
-                Debug.Log("@@@@@@@@@@@");
-                Debug.Log(obj.name);
-                Debug.Log(obj.fuelRate);
+                totalFuelRate += obj.GetFuelRate();
             }
         }
         return totalFuelRate;
