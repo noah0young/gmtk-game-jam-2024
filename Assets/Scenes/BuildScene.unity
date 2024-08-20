@@ -6663,6 +6663,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelperBox (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7806068982952478261, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8079,7 +8083,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7806068982952478261, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_text
-      value: Used to mine through obstacles on the mountain
+      value: '
+
+        Used to mine through obstacles on the mountain'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15587,7 +15593,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7806068982952478261, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_text
-      value: Speed and power!!!
+      value: '
+
+        Speed and power!!!
+
+        Press spacebar to activate'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16864,6 +16874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 719884058}
   inventory: {fileID: 1002948827}
+  coreComponent: {fileID: 3758277940150311570, guid: 6529e6ad0bbc36f49b681f9068e84e50, type: 3}
   dayCounter: {fileID: 1115519199}
   conversionDictionary:
   - name: Block
@@ -16882,6 +16893,9 @@ MonoBehaviour:
     prefab: {fileID: 5409949533950091243, guid: 0c4e6aec401c2044fb31e70374e11260, type: 3}
   - name: Eye
     prefab: {fileID: 1658309761303390905, guid: 4b6a91ac275c9804eb842a57a8f7c656, type: 3}
+  - name: Core
+    prefab: {fileID: 3758277940150311570, guid: 6529e6ad0bbc36f49b681f9068e84e50, type: 3}
+  coreComponentEnabled: 0
 --- !u!224 &2142937350 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6412321700159805558, guid: 9c17f507f59dd95419634c34bde63f50, type: 3}
@@ -16994,6 +17008,11 @@ PrefabInstance:
     - target: {fileID: 7311281483909877946, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_Name
       value: HelperBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806068982952478261, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
+      propertyPath: m_text
+      value: Motion! Wheels are all powered and turn battery power into forward motion.
+        You should probably have at least one.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -10,7 +10,7 @@ public class RocketDetails : FuelDetails
     void Start()
     {
         CheckForAdjacentBoxes();
-        this.fuel = 10;
+        
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
@@ -19,16 +19,16 @@ public class RocketDetails : FuelDetails
     }
     void Update()
     {
+        this.fuelRate = 0;
         if (this.fuel > 0)
         {
             if (Input.GetKey(KeyCode.Space))
             {
+                Debug.Log("@@@@@@@@@@@ Rocket");
                 ApplyThrust();
-                this.fuel -= this.fuelRate * Time.deltaTime;
-                this.fuel = Mathf.Max(this.fuel, 0f);
+                this.fuelRate = 5f;
             }
         }
-        
     }
     void ApplyThrust()
     {

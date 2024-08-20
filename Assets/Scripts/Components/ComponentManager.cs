@@ -29,7 +29,6 @@ public class ComponentManager : MonoBehaviour
             foreach (GameObject component in taggedObjects)
             {
                 component.GetComponent<ComponentDetails>().outOfBattery();
-                Debug.Log("Out of batery");
             }
         }
     }
@@ -46,6 +45,7 @@ public class ComponentManager : MonoBehaviour
                 totalFuel += obj.fuel;
             }
         }
+
         return totalFuel;
     }
 
@@ -55,9 +55,15 @@ public class ComponentManager : MonoBehaviour
         foreach (var otherObject in this.taggedObjects)
         {
             ComponentDetails obj = otherObject.GetComponent<ComponentDetails>();
+     
             if (obj != null)
             {
+
                 totalFuelRate += obj.fuelRate;
+
+                Debug.Log("@@@@@@@@@@@");
+                Debug.Log(obj.name);
+                Debug.Log(obj.fuelRate);
             }
         }
         return totalFuelRate;
@@ -77,6 +83,6 @@ public class ComponentManager : MonoBehaviour
     void depleteFuel()
     {
         totalFuel -= getTotalFuelRate() * Time.deltaTime;
-        Debug.Log(totalFuel);
+       
     }
 }

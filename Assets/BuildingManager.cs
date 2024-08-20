@@ -11,9 +11,13 @@ public class BuildingManager : MonoBehaviour
 
     public GameObject inventory;
 
+    [SerializeField] GameObject coreComponent;
+
     public TextMeshProUGUI dayCounter;
 
     public ComponentConversion[] conversionDictionary;
+    
+    [SerializeField] private bool coreComponentEnabled = false;
     
     
     // Start is called before the first frame update
@@ -36,8 +40,12 @@ public class BuildingManager : MonoBehaviour
         }
 
         GameManager.Instance.dayCount += 1;
-        dayCounter.text = "Day " + GameManager.Instance.dayCount.ToString(); 
-        
+        dayCounter.text = "Day " + GameManager.Instance.dayCount.ToString();
+
+        if (coreComponentEnabled && GameManager.Instance.dayCount == 1)
+        {
+            GameObject go = Instantiate(coreComponent,inventory.transform.position, inventory.transform.rotation, inventory.transform);
+        }        
     }
 
     // Update is called once per frame
@@ -106,6 +114,23 @@ public class BuildingManager : MonoBehaviour
         if (grid.GetComponentsInChildren<DraggableItem>().Length <= 0)
         {
             return;
+        }
+        // if core component is enabled, you need one of them
+        if (coreComponentEnabled)
+        {
+            bool hasCoreComponent = false;
+            foreach (var info in grid.GetComponentsInChildren<Cost>())
+            {
+                if (info.name == "Core")
+                {
+                    hasCoreComponent = true;
+                }
+            }
+
+            if (!hasCoreComponent)
+            {
+                return;
+            }
         }
         UnityEngine.SceneManagement.SceneManager.LoadScene("ClimbScene");
     }
