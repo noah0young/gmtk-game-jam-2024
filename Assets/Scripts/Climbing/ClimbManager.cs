@@ -176,6 +176,8 @@ public class ClimbManager : MonoBehaviour
     private IEnumerator MachineStoppedRoutine(int score)
     {
         Debug.Log("Machine Stopped!");
+        AudioManager.PlayTrack("");
+        AudioManager.PlaySFX("ClimbFall");
         for (int i = 0; i < NUM_BOXES_OPEN; i++)
         {
             DestroyOldest();
