@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class BuildingManager : MonoBehaviour
     public GameObject grid;
 
     public GameObject inventory;
+
+    public TextMeshProUGUI dayCounter;
 
     public ComponentConversion[] conversionDictionary;
     
@@ -31,6 +34,10 @@ public class BuildingManager : MonoBehaviour
                 go.GetComponent<Rigidbody2D>().simulated = true;
             }
         }
+
+        GameManager.Instance.dayCount += 1;
+        dayCounter.text = "Day " + GameManager.Instance.dayCount.ToString(); 
+        
     }
 
     // Update is called once per frame
@@ -77,7 +84,7 @@ public class BuildingManager : MonoBehaviour
         {
             Debug.Log("Machine has " + c.type);
         }
-        UnityEngine.SceneManagement.SceneManager.LoadScene("ClimbScene");
+        
     }
     
     private GameObject findComponentConversion(string type)
@@ -91,6 +98,21 @@ public class BuildingManager : MonoBehaviour
         }
 
         throw new Exception("Component not found, could not find " + type);
+    }
+
+    public void MoveToClimbing()
+    {
+        // Can only move to climbing if there's at least one component in the grid
+        if (grid.GetComponentsInChildren<DraggableItem>().Length <= 0)
+        {
+            return;
+        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene("ClimbScene");
+    }
+
+    public void MoveToMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MenuScene");
     }
 }
 
