@@ -18,6 +18,11 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private MusicStruct[] sfx;
     [SerializeField] private MusicStruct[] tracks;
+    [SerializeField] private MusicStruct[] juteboxTracks;
+    private List<MusicStruct> remainingJuteboxTracks;
+
+    private static List<Jutebox> juteboxes = new List<Jutebox>();
+    private static MusicStruct curTrack;
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,6 +35,11 @@ public class AudioManager : MonoBehaviour
         else
         {
             Instance = this;
+            // inits jutebox tracks
+            foreach (MusicStruct juteboxTrack in juteboxTracks)
+            {
+                remainingJuteboxTracks.Add(juteboxTrack);
+            }
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -65,17 +75,11 @@ public class AudioManager : MonoBehaviour
         {
             music.audio.Stop();
         }
-        music.audio.Play();
-    }
-
-    private static MusicStruct GetSFX(string name)
-    {
-        return GetMusicStruct(name, Instance.sfx);
-    }
-
-    private static MusicStruct GetTrack(string name)
-    {
-        return GetMusicStruct(name, Instance.tracks);
+        curTrack = music;
+        if (juteboxes.Count <= 0)
+        {
+            music.audio.Play();
+        }
     }
 
     private static MusicStruct GetMusicStruct(string name, MusicStruct[] musics)
@@ -93,5 +97,37 @@ public class AudioManager : MonoBehaviour
     public static void SetVolume(float volume)
     {
         AudioManager.volume = volume;
+    }
+
+    public static void SetJutebox(Jutebox box)
+    {
+        juteboxes.Add(box);
+        if (curTrack != null)
+        {
+            curTrack.audio.Stop();
+        }
+        PlayRandomjuteboxTrack(box);
+    }
+
+    private static void PlayRandomjuteboxTrack(Jutebox box)
+    {
+        int len = Instance.remainingJuteboxTracks.Count;
+        MusicStruct randTrack = Instance.remainingJuteboxTracks[UnityEngine.Random.Range(0, len)];
+        Instance.remainingJuteboxTracks.RemoveAt(UnityEngine.Random.Range(0, len));
+        randTrack.audio.volume = randTrack.volume * volume;
+        randTrack.audio.Play();
+        box.SetTrackName(randTrack.name);
+    }
+
+    public static void RemoveJutebox(Jutebox box)
+    {
+        MusicStruct playedTrack = GetMusicStruct(box.GetTrackName(), Instance.juteboxTracks);
+        playedTrack.audio.Stop();
+        Instance.remainingJuteboxTracks.Add(playedTrack);
+        juteboxes.Remove(box);
+        if (juteboxes.Count <= 0)
+        {
+            curTrack.audio.Play();
+        }
     }
 }
