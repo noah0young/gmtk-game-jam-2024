@@ -184,7 +184,7 @@ public class ClimbManager : MonoBehaviour
         int moneyEarned = CalculateMoneyFrom(score);
         GameManager.Instance.totalMoney += moneyEarned;
         ClimbingUI.SetMoneyTotalVal(GameManager.Instance.totalMoney);
-        yield return ClimbingUI.ShowMachineStopped(moneyEarned);
+        yield return ClimbingUI.ShowMachineStopped(Mathf.Min(120, moneyEarned));
         UnityEngine.SceneManagement.SceneManager.LoadScene("BuildScene");
     }
 

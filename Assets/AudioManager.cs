@@ -51,7 +51,10 @@ public class AudioManager : MonoBehaviour
         {
             music.audio.volume = 0;
         }
-        PlayMusic(name, Instance.tracks);
+        if (name != "" && name != "None")
+        {
+            PlayMusic(name, Instance.tracks);
+        }
     }
 
     private static void PlayMusic(string name, MusicStruct[] musics, bool fromStart = false)
