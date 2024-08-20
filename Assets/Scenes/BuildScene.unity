@@ -4778,7 +4778,19 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
+      - m_Target: {fileID: 631088530}
+        m_TargetAssemblyTypeName: ButtonAudioWorkaround, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BookClose
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &522837148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5643,6 +5655,7 @@ GameObject:
   - component: {fileID: 631088527}
   - component: {fileID: 631088529}
   - component: {fileID: 631088528}
+  - component: {fileID: 631088530}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -5709,6 +5722,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631088526}
   m_CullTransparentMesh: 1
+--- !u!114 &631088530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631088526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6cd168f99719343ae4623920ba4251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &632655510 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6412321700159805558, guid: 9c17f507f59dd95419634c34bde63f50, type: 3}
@@ -6553,7 +6578,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
       - m_Target: {fileID: 2141346585}
         m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
         m_MethodName: MoveToClimbing
@@ -6566,6 +6591,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 631088530}
+        m_TargetAssemblyTypeName: ButtonAudioWorkaround, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EngineStartup
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &710016482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6574,6 +6611,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 89425885}
     m_Modifications:
+    - target: {fileID: 1411078214530373162, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1055917593, guid: 9cd73e41adacd4563a447dea18f8ec78, type: 3}
     - target: {fileID: 6872735559295139240, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_text
       value: Drill
@@ -6902,6 +6943,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4339428656999505103, guid: 94cde81ceb9c94e9fa1cb34682b74d37, type: 3}
+      propertyPath: sfx.Array.data[6].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339428656999505103, guid: 94cde81ceb9c94e9fa1cb34682b74d37, type: 3}
+      propertyPath: sfx.Array.data[7].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4627696830927377053, guid: 94cde81ceb9c94e9fa1cb34682b74d37, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10209,6 +10258,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 89425885}
     m_Modifications:
+    - target: {fileID: 1411078214530373162, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 40f8a5f09dc363e48b347a77f0381b3d, type: 3}
     - target: {fileID: 6872735559295139240, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_text
       value: Battery
@@ -13681,7 +13734,7 @@ PrefabInstance:
     - target: {fileID: 1411078214530373162, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5d543bdd45071aa4a89d7dc2b8d66650, type: 3}
+      objectReference: {fileID: 21300000, guid: 1b25abde22c65534aac43e26cc76c396, type: 3}
     - target: {fileID: 6872735559295139240, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_text
       value: Block
@@ -14928,7 +14981,19 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 1
+        m_CallState: 2
+      - m_Target: {fileID: 631088530}
+        m_TargetAssemblyTypeName: ButtonAudioWorkaround, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BookOpen
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1875232600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15501,6 +15566,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 89425885}
     m_Modifications:
+    - target: {fileID: 1411078214530373162, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e4538a7f220ed5d48be0a61f7f1bad35, type: 3}
     - target: {fileID: 6872735559295139240, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_text
       value: Rocket
@@ -16910,7 +16979,7 @@ PrefabInstance:
     - target: {fileID: 1411078214530373162, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e92a8d6e3713d45408f07001ec0873c8, type: 3}
+      objectReference: {fileID: 21300000, guid: 78ad5cb229ae07c45ae8a862631dd78b, type: 3}
     - target: {fileID: 6872735559295139240, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_text
       value: Wheel
