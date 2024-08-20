@@ -11,8 +11,14 @@ public class GameManager : MonoBehaviour
     public List<Component> Inmachine = new List<Component>();
     public List<Component> Ininventory = new List<Component>();
     public int totalMoney = 0;
+    [HideInInspector] public int totalMoneyEarned;
     public bool win = false;
     [HideInInspector] public int dayCount = 0;
+
+    private void Start()
+    {
+        totalMoneyEarned = totalMoney;
+    }
 
     private void Awake()
     {

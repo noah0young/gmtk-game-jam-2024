@@ -41,6 +41,8 @@ public class ClimbingUI : MonoBehaviour
         moneyTotalBoxObj.SetActive(false);
         continueButtonObj.SetActive(false);
         instance.finalScoreHolder.SetActive(false);
+        
+        instance.youWinUI.SetActive(false);
     }
 
     public static void SetScoreVal(int val)
@@ -100,6 +102,12 @@ public class ClimbingUI : MonoBehaviour
     {
         instance.youWinUI.SetActive(true);
         instance.youWinUI.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = score.ToString();
-        instance.youWinUI.transform.GetChild(4).GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.totalMoney.ToString();
+        instance.youWinUI.transform.GetChild(4).GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.dayCount.ToString();
+        GameManager.Instance.totalMoney += 50;
+        GameManager.Instance.totalMoneyEarned += 50;
+        instance.youWinUI.transform.GetChild(4).GetChild(2).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.totalMoneyEarned.ToString();
+        AudioManager.StopMusic();
+        AudioManager.PlaySFX("Fanfare");
+        
     }
 }
