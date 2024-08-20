@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 public class ShopManager : MonoBehaviour
 {
 
-    [SerializeField] public List<GameObject> possibleComponents;
+    [SerializeField] public List<ShopComponentSelection> possibleComponents;
 
     [SerializeField] public CapsuleManager[] allCapsules = new CapsuleManager[3];
     
@@ -53,7 +53,7 @@ public class ShopManager : MonoBehaviour
 
     private void RefreshCapsules()
     {
-        GameObject temp = randomComponent();
+        GameObject temp = selectComponent();
         //Debug.Log(temp);
         int tempCost = getCostForComponent(temp);
         bool tempSale = isOnSale();
@@ -61,7 +61,7 @@ public class ShopManager : MonoBehaviour
             tempCost /= 2;
         }
         allCapsules[0].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
-        temp = randomComponent();
+        temp = selectComponent();
         tempCost = getCostForComponent(temp);
         tempSale = isOnSale();
         if (tempSale)
@@ -69,7 +69,7 @@ public class ShopManager : MonoBehaviour
             tempCost /= 2;
         }
         allCapsules[1].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
-        temp = randomComponent();
+        temp = selectComponent();
         tempCost = getCostForComponent(temp);
         tempSale = isOnSale();
         if (tempSale)
@@ -79,9 +79,23 @@ public class ShopManager : MonoBehaviour
         allCapsules[2].Set(temp, temp.GetComponent<Image>().sprite, tempCost, tempSale);
     }
 
-    private GameObject randomComponent() {
+    private GameObject selectComponent() {
         //Debug.Log(possibleComponents.Count);
-        return possibleComponents[Random.Range(0, possibleComponents.Count)];
+        int totalWeight = 0;
+        foreach (var possibleComponent in possibleComponents)
+        {
+            totalWeight += possibleComponent.weight;
+        }
+        int num = Random.Range(0, totalWeight);
+        foreach (var component in possibleComponents)
+        {
+            num -= component.weight;
+            if (num <= 0)
+            {
+                return component.componentPrefab;
+            }
+        }
+        throw new Exception("No component selected");
     }
 
     private int getCostForComponent(GameObject component) {
@@ -127,4 +141,9 @@ public class ShopManager : MonoBehaviour
         screenMoney.text = "$" + money.ToString();
         Debug.Log(itemname);
     }
+}
+
+[Serializable] public struct ShopComponentSelection {
+    public GameObject componentPrefab;
+    public int weight;
 }
