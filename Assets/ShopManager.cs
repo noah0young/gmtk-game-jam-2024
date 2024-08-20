@@ -115,7 +115,7 @@ public class ShopManager : MonoBehaviour
             screenFail.SetActive(true);
             screenMoney.gameObject.SetActive(false);
             timeScreenUpdated = Time.time;
-            audioManager.playDeny();
+            AudioManager.PlaySFX("Deny");
         }
         else
         {
@@ -129,7 +129,7 @@ public class ShopManager : MonoBehaviour
             money -= capsule.cost;
             GameManager.Instance.totalMoney = money;
             screenMoney.text = "$" + money.ToString();
-            audioManager.playMoney();
+            AudioManager.PlaySFX("Money");
             RefreshCapsules();
         }
     }

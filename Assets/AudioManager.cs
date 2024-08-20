@@ -1,20 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public class MusicStruct
+{
+    public string name;
+    public float volume = 0.5f;
+    public AudioSource audio;
+}
+
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioSource moneySource;
+    private static AudioManager Instance;
+    private static float volume = .5f;
 
-    [SerializeField] AudioSource denySource;
-
-    [SerializeField] private AudioSource placeSource;
-
-    [SerializeField] private AudioSource trashSource;
+    [SerializeField] private MusicStruct[] sfx;
+    [SerializeField] private MusicStruct[] tracks;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            Debug.LogWarning("Destroying this audio manager, since its the second");
+            return;
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -23,23 +40,55 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    public void playMoney()
+    public static void PlaySFX(string name)
     {
-        moneySource.Play();
+        PlayMusic(name, Instance.sfx);
     }
 
-    public void playDeny()
+    public static void PlayTrack(string name)
     {
-        denySource.Play();
+        foreach (MusicStruct music in Instance.tracks)
+        {
+            music.audio.volume = 0;
+        }
+        PlayMusic(name, Instance.tracks);
     }
 
-    public void playPlace()
+    private static void PlayMusic(string name, MusicStruct[] musics, bool fromStart = false)
     {
-        placeSource.Play();
+        MusicStruct music = GetMusicStruct(name, musics);
+        music.audio.volume = music.volume * volume;
+        if (fromStart)
+        {
+            music.audio.Stop();
+        }
+        music.audio.Play();
     }
 
-    public void playTrash()
+    private static MusicStruct GetSFX(string name)
     {
-        trashSource.Play();
+        return GetMusicStruct(name, Instance.sfx);
+    }
+
+    private static MusicStruct GetTrack(string name)
+    {
+        return GetMusicStruct(name, Instance.tracks);
+    }
+
+    private static MusicStruct GetMusicStruct(string name, MusicStruct[] musics)
+    {
+        foreach (MusicStruct music in musics)
+        {
+            if (music.name == name)
+            {
+                return music;
+            }
+        }
+        throw new Exception("Music not found by name of \"" + name + "\"");
+    }
+
+    public static void SetVolume(float volume)
+    {
+        AudioManager.volume = volume;
     }
 }

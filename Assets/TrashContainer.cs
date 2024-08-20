@@ -16,6 +16,6 @@ public class TrashContainer : MonoBehaviour, IDropHandler {
         draggableItem.gameObject.SetActive(false);
         draggableItem.transform.position = Vector3.negativeInfinity;
         shopManager.SellItem(draggableItem.name);
-        audioManager.playTrash();
+        AudioManager.PlaySFX("Trash");
     }
 }
