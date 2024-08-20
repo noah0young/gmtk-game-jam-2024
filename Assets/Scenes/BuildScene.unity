@@ -463,14 +463,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleComponents:
-  - {fileID: 2246922068646805613, guid: e28f69b607901144090d4986fdb0a4b9, type: 3}
-  - {fileID: 4524430117270895217, guid: b792f5b8c492f2640877bfe91680088b, type: 3}
-  - {fileID: 5259980033572240508, guid: 5c9baffc30997a54e8803f1eec2bb9b4, type: 3}
-  - {fileID: 5348727263590980045, guid: f626632cb42e7cb4599aa93ab82b9101, type: 3}
-  - {fileID: 2853889392972624042, guid: c919ea1b3c6c94bff8984be0a840a98c, type: 3}
-  - {fileID: 3652697271337102212, guid: 63b631d09b32b9e4ab6ae5b69a9ce79f, type: 3}
-  - {fileID: 5409949533950091243, guid: 0c4e6aec401c2044fb31e70374e11260, type: 3}
-  - {fileID: 1658309761303390905, guid: 4b6a91ac275c9804eb842a57a8f7c656, type: 3}
+  - componentPrefab: {fileID: 2853889392972624042, guid: c919ea1b3c6c94bff8984be0a840a98c, type: 3}
+    weight: 5
+  - componentPrefab: {fileID: 5259980033572240508, guid: 5c9baffc30997a54e8803f1eec2bb9b4, type: 3}
+    weight: 4
+  - componentPrefab: {fileID: 5348727263590980045, guid: f626632cb42e7cb4599aa93ab82b9101, type: 3}
+    weight: 3
+  - componentPrefab: {fileID: 5409949533950091243, guid: 0c4e6aec401c2044fb31e70374e11260, type: 3}
+    weight: 1
+  - componentPrefab: {fileID: 1658309761303390905, guid: 4b6a91ac275c9804eb842a57a8f7c656, type: 3}
+    weight: 1
+  - componentPrefab: {fileID: 2246922068646805613, guid: e28f69b607901144090d4986fdb0a4b9, type: 3}
+    weight: 2
+  - componentPrefab: {fileID: 3652697271337102212, guid: 63b631d09b32b9e4ab6ae5b69a9ce79f, type: 3}
+    weight: 0
+  - componentPrefab: {fileID: 4524430117270895217, guid: b792f5b8c492f2640877bfe91680088b, type: 3}
+    weight: 2
   allCapsules:
   - {fileID: 8571550476566894395}
   - {fileID: 596376362}
