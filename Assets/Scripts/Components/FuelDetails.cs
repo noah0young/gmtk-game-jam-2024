@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class FuelDetails : MonoBehaviour
+public class FuelDetails : ComponentDetails
 {
     public float fuel;
 
