@@ -16895,6 +16895,7 @@ MonoBehaviour:
     prefab: {fileID: 1658309761303390905, guid: 4b6a91ac275c9804eb842a57a8f7c656, type: 3}
   - name: Core
     prefab: {fileID: 3758277940150311570, guid: 6529e6ad0bbc36f49b681f9068e84e50, type: 3}
+  coreComponentEnabled: 0
 --- !u!224 &2142937350 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6412321700159805558, guid: 9c17f507f59dd95419634c34bde63f50, type: 3}
