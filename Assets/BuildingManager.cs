@@ -109,6 +109,11 @@ public class BuildingManager : MonoBehaviour
         }
         UnityEngine.SceneManagement.SceneManager.LoadScene("ClimbScene");
     }
+
+    public void MoveToMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MenuScene");
+    }
 }
 
 public class Component
