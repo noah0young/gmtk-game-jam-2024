@@ -103,5 +103,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceThreshold: 1.1
   fuelRate: 0
-  miningDamage: 1
-  damageRate: 1
+  miningDamage: 2
+  damageRate: 2
