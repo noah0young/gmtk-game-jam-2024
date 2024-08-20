@@ -11,6 +11,8 @@ public class BuildingManager : MonoBehaviour
 
     public GameObject inventory;
 
+    [SerializeField] GameObject coreComponent;
+
     public TextMeshProUGUI dayCounter;
 
     public ComponentConversion[] conversionDictionary;
@@ -36,8 +38,12 @@ public class BuildingManager : MonoBehaviour
         }
 
         GameManager.Instance.dayCount += 1;
-        dayCounter.text = "Day " + GameManager.Instance.dayCount.ToString(); 
-        
+        dayCounter.text = "Day " + GameManager.Instance.dayCount.ToString();
+
+        if (GameManager.Instance.dayCount == 1)
+        {
+            GameObject go = Instantiate(coreComponent,inventory.transform.position, inventory.transform.rotation, inventory.transform);
+        }        
     }
 
     // Update is called once per frame
