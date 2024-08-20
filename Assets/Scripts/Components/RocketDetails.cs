@@ -10,6 +10,7 @@ public class RocketDetails : FuelDetails
     private GameInput input;
     private bool flying = false;
     private bool canFly = true;
+    private bool playingSound = false;
     [SerializeField] private ParticleSystem rocketParticles;
 
     void Start()
@@ -53,6 +54,16 @@ public class RocketDetails : FuelDetails
         if (ShouldFly())
         {
             ApplyThrust();
+        }
+        // Sound stuff
+        if (ShouldFly() && !playingSound)
+        {
+            playingSound = true;
+            AudioManager.PlaySFX("Rocket");
+        } else if (!ShouldFly() && playingSound)
+        {
+            playingSound = false;
+            AudioManager.StopSFX("Rocket");
         }
     }
 

@@ -61,6 +61,12 @@ public class AudioManager : MonoBehaviour
         music.audio.Play();
     }
 
+    public static void StopSFX(string name)
+    {
+        MusicStruct music = GetMusicStruct(name, Instance.sfx);
+        music.audio.Stop();
+    }
+
     public static void PlayTrack(string name, bool fromStart = false)
     {
         foreach (MusicStruct music in Instance.tracks)

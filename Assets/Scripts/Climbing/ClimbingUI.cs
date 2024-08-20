@@ -99,5 +99,7 @@ public class ClimbingUI : MonoBehaviour
     public static void PlayYouWin()
     {
         instance.youWinUI.SetActive(true);
+        instance.youWinUI.transform.GetChild(4).GetChild(0).GetComponent<TextMeshProUGUI>().text = score.ToString();
+        instance.youWinUI.transform.GetChild(4).GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.Instance.totalMoney.ToString();
     }
 }

@@ -7595,7 +7595,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7806068982952478261, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_text
-      value: 
+      value: '
+
+        Like a pickaxe, but twice as strong.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9052,7 +9054,7 @@ PrefabInstance:
       propertyPath: m_text
       value: '
 
-        Used to mine through obstacles on the mountain'
+        Used to mine through obstacles on the mountain.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9185,7 +9187,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'When you''re ready, drag your parts onto the left boxes to build a machine
+  m_text: 'When you''re ready, drag your parts to the grid on the left to build a
+    machine
 
 '
   m_isRightToLeft: 0
@@ -11179,7 +11182,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: And try your best to scale the mountain!
+  m_text: 'And try your best to scale the mountain!
+
+
+    P.S. If you have too many
+    parts, try recycling :)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13018,7 +13025,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome to the Game
+  m_text: Welcome to Ship of Sisyphus!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16749,7 +16756,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click on BUY NOW to parts items
+  m_text: Click on BUY NOW to add components to your inventory
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17637,11 +17644,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7806068982952478261, guid: 61d661296e4e96f48bf65b1798b4f36f, type: 3}
       propertyPath: m_text
-      value: '
+      value: 'Speed and power!!!
 
-        Speed and power!!!
+        Press spacebar to activate
 
-        Press spacebar to activate'
+        Gives
+        upward thrust, use to jump over large obstacles. Uses battery.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
